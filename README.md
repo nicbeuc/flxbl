@@ -1,3 +1,3 @@
 # Flxbl
 
-A full-service, bulletproof flexbox CSS generator.
+A simple, plain-english flex grid generator.
