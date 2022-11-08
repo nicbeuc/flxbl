@@ -12,6 +12,7 @@ const defaultParams = {
   fillAvailable: true,
 }
 
+// Default Breakpoints
 const defaultBreakpoints = {
   mobile: [0, 499],
   tablet: [500, 999],
@@ -22,10 +23,19 @@ function App() {
   const [params, setParams] = useState(defaultParams);
   const [breakpoints, setBreakpoints] = useState(defaultBreakpoints);
 
+  function handleParamFormChange(e) {
+    setParams((prevParams) => ({
+      ...prevParams,
+      [e.target.dataset.changes]: e.target.type === "number" ? parseInt(e.target.value, 10) : e.target.checked
+    }));
+  }
+
+  console.log(params);
+
   return (
-    <div className="App">
+    <div className='App'>
       <h1>Flxbl</h1>
-      <ParamForm params={params} breakpoints={breakpoints}/>
+      <ParamForm params={params} breakpoints={breakpoints} onParamFormChange={handleParamFormChange}/>
     </div>
   );
 }
