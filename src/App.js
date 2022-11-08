@@ -6,7 +6,9 @@ import './App.css';
 const defaultParams = {
   baseFontSize: 16,
   children: 3,
-  gap: 1,
+  columns: 1,
+  columnGap: 1,
+  rowGap: 1,
   fillAvailable: true,
 }
 
@@ -23,7 +25,7 @@ function App() {
   return (
     <div className="App">
       <h1>Flxbl</h1>
-      <ParamForm params={params}/>
+      <ParamForm params={params} breakpoints={breakpoints}/>
     </div>
   );
 }
