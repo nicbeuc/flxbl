@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import ParamForm from './ParamForm.js';
+import ParamForm from './ParamForm';
 import './App.css';
 
 // Default Parameters
@@ -23,10 +23,10 @@ function App() {
   const [params, setParams] = useState(defaultParams);
   const [breakpoints, setBreakpoints] = useState(defaultBreakpoints);
 
-  function handleParamFormChange(e) {
+  function handleSliderChange(value, targetParam) {
     setParams((prevParams) => ({
       ...prevParams,
-      [e.target.dataset.changes]: e.target.type === "number" ? parseInt(e.target.value, 10) : e.target.checked
+      [targetParam]: value
     }));
   }
 
@@ -35,7 +35,7 @@ function App() {
   return (
     <div className='App'>
       <h1>Flxbl</h1>
-      <ParamForm params={params} breakpoints={breakpoints} onParamFormChange={handleParamFormChange}/>
+      <ParamForm params={params} breakpoints={breakpoints} onSliderChange={handleSliderChange}/>
     </div>
   );
 }

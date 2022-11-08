@@ -1,0 +1,24 @@
+.ParamForm__slider {
+  width: 100%;
+  height: 50px;
+  border: 1px solid grey;
+  max-width: 500px;
+  margin: 0 auto;
+}
+.ParamForm__slider--track {
+  top: 20px;
+  height: 10px;
+  background: rgb(179, 179, 179);
+}
+.ParamForm__slider--thumb {
+  top: 1px;
+  width: 50px;
+  height: 48px;
+  line-height: 38px;
+  background: #333;
+  color: #fff;
+}
+.ParamForm__slider--mark {
+  margin: 0px 19px;
+  bottom: calc(50% - 6px);
+}
