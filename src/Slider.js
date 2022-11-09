@@ -4,25 +4,34 @@ import './Slider.css';
 function Slider({
   onSliderChange,
   currentValue,
-  targetParam,
+  targetSetting,
   range,
-  label
+  label,
+  unit
 }) {
+  let marksArray = Array.from({length: range[1] - range[0] + 1}, (_, index) => index + range[0]);
+
   return (
-    <div className='ParamForm__slider--container'>
-      <label>{label}</label>
+    <div className='Slider'>
+      <label className='Slider__label--container'>
+        <span className='Slider__label'>{label}</span>
+        <span className='Slider__value'>{unit ? currentValue + ' ' + unit : currentValue}</span>
+      </label>
       <ReactSlider
-        className='ParamForm__slider'
-        thumbClassName='ParamForm__slider--thumb'
-        trackClassName='ParamForm__slider--track'
-        markClassName='ParamForm__slider--mark'
-        marks
+        className='Slider__control'
+        thumbClassName='Slider__thumb'
+        trackClassName='Slider__track'
+        markClassName='Slider__mark'
+        marks={marksArray}
         min={range[0]}
         max={range[1]}
-        onAfterChange={value => onSliderChange(value, targetParam)}
+        onAfterChange={value => onSliderChange(value, targetSetting)}
         value={currentValue}
-        renderThumb={(props, state) => <div {...props}>{state.valueNow}</div>}
       />
+      <div className='Slider__bounds'>
+        <span className='Slider__bound'>{range[0]}</span>
+        <span className='Slider__bound'>{range[1]}</span>
+      </div>
     </div>
   )
 }

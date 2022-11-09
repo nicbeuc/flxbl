@@ -1,24 +1,77 @@
-.ParamForm__slider {
-  width: 100%;
-  height: 50px;
-  border: 1px solid grey;
-  max-width: 500px;
-  margin: 0 auto;
+.Slider {
+  --thumb-width: 16px;
+  --marker-width: 2px;
+  --marker-margin: calc((var(--thumb-width) - var(--marker-width)) / 2);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
 }
-.ParamForm__slider--track {
-  top: 20px;
-  height: 10px;
-  background: rgb(179, 179, 179);
+.Slider__control {
+  height: var(--thumb-width);
+  position: relative;
 }
-.ParamForm__slider--thumb {
-  top: 1px;
-  width: 50px;
-  height: 48px;
-  line-height: 38px;
-  background: #333;
-  color: #fff;
+.Slider__label--container {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
 }
-.ParamForm__slider--mark {
-  margin: 0px 19px;
-  bottom: calc(50% - 6px);
+.Slider__label {
+  font-size: 1.4rem;
+}
+.Slider__value {
+  font-size: 1.4rem;
+  font-weight: 600;
+  background-color: var(--primary-600);
+  padding: 6px 8px;
+  border-radius: calc(var(--border-radius) / 2);
+  min-width: 40px;
+  text-align: center;
+  box-shadow: var(--border);
+}
+.Slider__track {
+  --track-radius: 4px;
+  top: 50%;
+  transform: translateY(-50%);
+  height: 8px;
+  background: var(--primary-600);
+  cursor: pointer;
+}
+.Slider__track-0 {
+  border-top-left-radius: var(--track-radius);
+  border-bottom-left-radius: var(--track-radius);
+}
+.Slider__track-1 {
+  border-top-right-radius: var(--track-radius);
+  border-bottom-right-radius: var(--track-radius);
+}
+.Slider__thumb {
+  top: 50%;
+  transform: translateY(-50%);
+  width: var(--thumb-width);
+  height: var(--thumb-width);
+  background: var(--accent);
+  border-radius: 50%;
+  cursor: pointer;
+  box-shadow: var(--shadow-low);
+}
+.Slider__mark {
+  width: var(--marker-width);
+  height: 4px;
+  background-color: var(--primary-400);
+  cursor: pointer;
+  border-radius: 2px;
+  vertical-align: middle;
+  margin: 0 var(--marker-margin);
+  top: 50%;
+  transform: translateY(-50%);
+}
+.Slider__bounds {
+  display: flex;
+  justify-content: space-between;
+  text-align: center;
+}
+.Slider__bound {
+  width: var(--thumb-width);
+  font-weight: 400;
+  color: var(--primary-200);
 }

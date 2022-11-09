@@ -1,9 +1,9 @@
 import { useState } from 'react';
-import ParamForm from './ParamForm';
-import './App.css';
+import ControlForm from './ControlForm';
+import Header from './Header';
 
 // Default Parameters
-const defaultParams = {
+const defaultSettings = {
   baseFontSize: 16,
   children: 3,
   columns: 1,
@@ -13,29 +13,40 @@ const defaultParams = {
 }
 
 // Default Breakpoints
-const defaultBreakpoints = {
-  mobile: [0, 499],
-  tablet: [500, 999],
-  desktop: [1000, 9999]
-}
+// const defaultBreakpoints = {
+//   mobile: [0, 499],
+//   tablet: [500, 999],
+//   desktop: [1000, 9999]
+// }
 
 function App() {
-  const [params, setParams] = useState(defaultParams);
-  const [breakpoints, setBreakpoints] = useState(defaultBreakpoints);
+  const [settings, setSettings] = useState(defaultSettings);
+  // const [breakpoints, setBreakpoints] = useState(defaultBreakpoints);
 
-  function handleSliderChange(value, targetParam) {
-    setParams((prevParams) => ({
-      ...prevParams,
-      [targetParam]: value
+  function handleSliderChange(value, targetSetting) {
+    setSettings((prevSettings) => ({
+      ...prevSettings,
+      [targetSetting]: value
     }));
   }
 
-  console.log(params);
+  function handleCheckboxChange(e) {
+    setSettings((prevSettings) => ({
+      ...prevSettings,
+      [e.target.dataset.setting]: e.target.checked
+    }));
+  }
 
   return (
     <div className='App'>
-      <h1>Flxbl</h1>
-      <ParamForm params={params} breakpoints={breakpoints} onSliderChange={handleSliderChange}/>
+      <Header />
+      <div className='Controls'>
+        <ControlForm
+          settings={settings}
+          onSliderChange={handleSliderChange}
+          onCheckboxChange={handleCheckboxChange}
+        />
+      </div>
     </div>
   );
 }
