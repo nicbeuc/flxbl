@@ -17,6 +17,7 @@
 }
 .Slider__label {
   font-size: 1.4rem;
+  color: var(--primary-200);
 }
 .Slider__value {
   font-size: 1.4rem;
@@ -56,7 +57,7 @@
 }
 .Slider__mark {
   width: var(--marker-width);
-  height: 4px;
+  height: var(--marker-width);
   background-color: var(--primary-400);
   cursor: pointer;
   border-radius: 2px;

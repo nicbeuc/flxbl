@@ -47,6 +47,7 @@ function App() {
           onCheckboxChange={handleCheckboxChange}
         />
       </div>
+      <div className='Output'></div>
     </div>
   );
 }

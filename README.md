@@ -1,3 +1,3 @@
-# Flxbl
+# Flxbl.
 
-A simple, plain-english flex grid generator.
+A no-nonsense flex grid generator.

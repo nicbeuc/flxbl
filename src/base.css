@@ -74,20 +74,19 @@ code {
   box-sizing: border-box;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: 32px auto auto;
+  grid-template-rows: 32px auto;
   gap: 24px;
   grid-template-areas:
     'Header Header Header'
-    'Controls Visualizer Visualizer'
-    'Controls Code1 Code2';
+    'Controls Output Output';
 }
 
 .Header {
   grid-area: Header;
 }
 
-.Controls {
-  grid-area: Controls;
+.Controls,
+.Output {
   padding: var(--inner-padding);
   background-color: var(--primary-800);
   border-radius: var(--border-radius);
@@ -97,8 +96,16 @@ code {
   box-shadow: var(--border);
 }
 
+.Controls {
+  grid-area: Controls;
+}
+
 .ControlForm {
   display: flex;
   flex-direction: column;
   gap: 16px;
+}
+
+.Output {
+  grid-area: Output;
 }
