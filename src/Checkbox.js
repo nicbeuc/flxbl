@@ -1,3 +1,5 @@
+import './Checkbox.css';
+
 function Checkbox({
   onCheckboxChange,
   targetSetting,
@@ -5,13 +7,13 @@ function Checkbox({
 }) {
   return (
     <div className='Checkbox'>
-      <label>Children should fill available space</label>
       <input
         type='checkbox'
         data-setting={targetSetting}
         checked={checked}
         onChange={onCheckboxChange}
       />
+      <label>Children should fill available space</label>
     </div>
   )
 }

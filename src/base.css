@@ -85,8 +85,7 @@ code {
   grid-area: Header;
 }
 
-.Controls,
-.Output {
+.Controls, .Output {
   padding: var(--inner-padding);
   background-color: var(--primary-800);
   border-radius: var(--border-radius);
@@ -94,6 +93,7 @@ code {
   flex-direction: column;
   gap: 24px;
   box-shadow: var(--border);
+  overflow: scroll;
 }
 
 .Controls {

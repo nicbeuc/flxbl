@@ -3,7 +3,7 @@ import ControlForm from './ControlForm';
 import Header from './Header';
 
 // Default Parameters
-const defaultSettings = {
+const defaultBaseSettings = {
   baseFontSize: 16,
   children: 3,
   columns: 1,
@@ -12,16 +12,8 @@ const defaultSettings = {
   fillAvailable: true,
 }
 
-// Default Breakpoints
-// const defaultBreakpoints = {
-//   mobile: [0, 499],
-//   tablet: [500, 999],
-//   desktop: [1000, 9999]
-// }
-
 function App() {
-  const [settings, setSettings] = useState(defaultSettings);
-  // const [breakpoints, setBreakpoints] = useState(defaultBreakpoints);
+  const [settings, setSettings] = useState(defaultBaseSettings);
 
   function handleSliderChange(value, targetSetting) {
     setSettings((prevSettings) => ({
