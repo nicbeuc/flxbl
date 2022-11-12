@@ -17,6 +17,7 @@ input[type='checkbox'] + label {
   align-items: center;
   justify-content: space-between;
   cursor: pointer;
+  gap: 16px;
 }
 input[type='checkbox'] + label::after {
   content: '';
@@ -27,6 +28,7 @@ input[type='checkbox'] + label::after {
   background: var(--primary-600);
   box-shadow: var(--border);
   border-radius: 3px;
+  flex: 0 0 20px;
 }
 input[type='checkbox']:checked + label::after {
   background: var(--accent);

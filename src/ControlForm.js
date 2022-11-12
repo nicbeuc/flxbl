@@ -1,16 +1,17 @@
-import Slider from './Slider'
-import Checkbox from './Checkbox';
+import DeviceSettings from './DeviceSettings';
+import Slider from './Slider';
 
 function ControlForm({
-  settings,
+  generalSettings,
   onSliderChange,
-  onCheckboxChange
+  deviceHandlers,
+  deviceSettings
 }) {
   return (
     <form id='controlForm' className='ControlForm'>
       <Slider
         onSliderChange={onSliderChange}
-        currentValue={settings.baseFontSize}
+        currentValue={generalSettings.baseFontSize}
         range={[10, 24]}
         targetSetting='baseFontSize'
         label='Base font size'
@@ -18,38 +19,16 @@ function ControlForm({
       />
       <Slider
         onSliderChange={onSliderChange}
-        currentValue={settings.children}
+        currentValue={generalSettings.children}
         range={[2, 10]}
         targetSetting='children'
         label='Child elements'
       />
-      <Slider
-        onSliderChange={onSliderChange}
-        currentValue={settings.columns}
-        range={[1, 10]}
-        targetSetting='columns'
-        label='Columns'
-      />
-      <Slider
-        onSliderChange={onSliderChange}
-        currentValue={settings.columnGap}
-        range={[0, 5]}
-        targetSetting='columnGap'
-        label='Column gap'
-        unit='rem'
-      />
-      <Slider
-        onSliderChange={onSliderChange}
-        currentValue={settings.rowGap}
-        range={[0, 5]}
-        targetSetting='rowGap'
-        label='Row gap'
-        unit='rem'
-      />
-      <Checkbox
-        onCheckboxChange={onCheckboxChange}
-        checked={settings.fillAvailable}
-        targetSetting='fillAvailable'
+      <DeviceSettings
+        device='mobile'
+        onSliderChange={deviceHandlers[0]}
+        onCheckboxChange={deviceHandlers[1]}
+        settings={deviceSettings.mobile}
       />
     </form>
   )

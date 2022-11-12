@@ -3,29 +3,67 @@ import ControlForm from './ControlForm';
 import Header from './Header';
 
 // Default Parameters
-const defaultBaseSettings = {
+const defGeneralSettings = {
   baseFontSize: 16,
   children: 3,
-  columns: 1,
-  columnGap: 1,
-  rowGap: 1,
-  fillAvailable: true,
+}
+
+const defDeviceSettings = {
+  mobile: {
+    maxWidth: 400,
+    units: 'px',
+    columns: 1,
+    columnGap: 1,
+    rowGap: 1,
+    fillAvailable: true,
+  },
+  tablet: {
+    maxWidth: 1000,
+    units: 'px',
+    columns: 1,
+    columnGap: 1,
+    rowGap: 1,
+    fillAvailable: true,
+  },
+  desktop: {
+    maxWidth: null,
+    units: 'px',
+    columns: 1,
+    columnGap: 1,
+    rowGap: 1,
+    fillAvailable: true,
+  }
 }
 
 function App() {
-  const [settings, setSettings] = useState(defaultBaseSettings);
+  const [generalSettings, setGeneralSettings] = useState(defGeneralSettings);
+  const [deviceSettings, setDeviceSettings] = useState(defDeviceSettings);
 
-  function handleSliderChange(value, targetSetting) {
-    setSettings((prevSettings) => ({
+  function handleGeneralSliderChange(value, targetSetting) {
+    setGeneralSettings((prevSettings) => ({
       ...prevSettings,
       [targetSetting]: value
     }));
   }
 
-  function handleCheckboxChange(e) {
-    setSettings((prevSettings) => ({
+  function handleDeviceSliderChange(value, device, targetSetting) {
+    console.log(device);
+    setDeviceSettings((prevSettings) => ({
       ...prevSettings,
-      [e.target.dataset.setting]: e.target.checked
+      [device]: {
+        ...prevSettings[device],
+        [targetSetting]: value
+      }
+    }));
+  }
+
+  function handleDeviceCheckboxChange(e) {
+    setDeviceSettings((prevSettings) => ({
+      ...prevSettings,
+      [e.target.dataset.device]: {
+        ...prevSettings[e.target.dataset.device],
+        [e.target.dataset.setting]: e.target.checked
+      }
     }));
   }
 
@@ -34,9 +72,10 @@ function App() {
       <Header />
       <div className='Controls'>
         <ControlForm
-          settings={settings}
-          onSliderChange={handleSliderChange}
-          onCheckboxChange={handleCheckboxChange}
+          generalSettings={generalSettings}
+          deviceSettings={deviceSettings}
+          deviceHandlers={[handleDeviceSliderChange, handleDeviceCheckboxChange]}
+          onSliderChange={handleGeneralSliderChange}
         />
       </div>
       <div className='Output'></div>

@@ -3,6 +3,7 @@ import './Checkbox.css';
 function Checkbox({
   onCheckboxChange,
   targetSetting,
+  device,
   checked
 }) {
   return (
@@ -10,6 +11,7 @@ function Checkbox({
       <input
         type='checkbox'
         data-setting={targetSetting}
+        data-device={device}
         checked={checked}
         onChange={onCheckboxChange}
       />
