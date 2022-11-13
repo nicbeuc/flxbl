@@ -35,6 +35,7 @@ html {
   --font-h3: 500 1.6rem/1.2 'Inter', sans-serif;
   --font-p: 400 1.4rem/1.35 'Inter', sans-serif;
   --font-label: 400 1.2rem/1.35 'Inter', sans-serif;
+  --font-value: 600 1.2rem/1.35 'Inter', sans-serif;
 
   /* Padding */
   --padding-inner: 6.4rem;
@@ -112,7 +113,7 @@ code {
 .ControlForm {
   display: flex;
   flex-direction: column;
-  gap: 40px;
+  gap: 48px;
 }
 
 .Output {

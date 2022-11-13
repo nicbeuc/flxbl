@@ -2,7 +2,7 @@
   --thumb-width: 16px;
   --marker-width: 2px;
   --marker-margin: calc((var(--thumb-width) - var(--marker-width)) / 2);
-  --top-margin: 24px;
+  --top-margin: 16px;
   display: flex;
   flex-direction: column;
   gap: 8px;
@@ -24,8 +24,7 @@
   color: var(--color-primary-200);
 }
 .Slider__value {
-  font-size: 1.4rem;
-  font-weight: 600;
+  font: var(--font-value);
   background-color: var(--color-primary-600);
   padding: 6px 8px;
   border-radius: calc(var(--border-radius) / 2);
