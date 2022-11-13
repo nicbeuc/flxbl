@@ -5,33 +5,33 @@ import Header from './Header';
 // Default Parameters
 const defGeneralSettings = {
   baseFontSize: 16,
-  children: 3,
+  children: 6,
 }
 
 const defDeviceSettings = {
   mobile: {
     maxWidth: 400,
-    units: 'px',
-    columns: 1,
+    units: 'rem',
+    columns: 2,
     columnGap: 1,
     rowGap: 1,
-    fillAvailable: true,
+    fillAvailable: false,
   },
   tablet: {
     maxWidth: 1000,
-    units: 'px',
-    columns: 1,
-    columnGap: 1,
-    rowGap: 1,
-    fillAvailable: true,
+    units: 'rem',
+    columns: 3,
+    columnGap: 2,
+    rowGap: 2,
+    fillAvailable: false,
   },
   desktop: {
     maxWidth: null,
-    units: 'px',
-    columns: 1,
-    columnGap: 1,
-    rowGap: 1,
-    fillAvailable: true,
+    units: 'rem',
+    columns: 4,
+    columnGap: 2,
+    rowGap: 2,
+    fillAvailable: false,
   }
 }
 
@@ -40,6 +40,7 @@ function App() {
   const [deviceSettings, setDeviceSettings] = useState(defDeviceSettings);
 
   function handleGeneralSliderChange(value, targetSetting) {
+    console.log('here');
     setGeneralSettings((prevSettings) => ({
       ...prevSettings,
       [targetSetting]: value
@@ -47,7 +48,6 @@ function App() {
   }
 
   function handleDeviceSliderChange(value, device, targetSetting) {
-    console.log(device);
     setDeviceSettings((prevSettings) => ({
       ...prevSettings,
       [device]: {

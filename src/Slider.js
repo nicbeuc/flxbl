@@ -26,7 +26,7 @@ function Slider({
         marks={marksArray}
         min={range[0]}
         max={range[1]}
-        onAfterChange={value => onSliderChange(value, device, targetSetting)}
+        onAfterChange={value => device ? onSliderChange(value, device, targetSetting) : onSliderChange(value, targetSetting)}
         value={currentValue}
       />
       <div className='Slider__bounds'>

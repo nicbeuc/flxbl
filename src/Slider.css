@@ -2,9 +2,13 @@
   --thumb-width: 16px;
   --marker-width: 2px;
   --marker-margin: calc((var(--thumb-width) - var(--marker-width)) / 2);
+  --top-margin: 24px;
   display: flex;
   flex-direction: column;
   gap: 8px;
+}
+* + .Slider {
+  margin-top: var(--top-margin);
 }
 .Slider__control {
   height: var(--thumb-width);
@@ -16,13 +20,13 @@
   align-items: baseline;
 }
 .Slider__label {
-  font-size: 1.4rem;
-  color: var(--primary-200);
+  font: var(--font-label);
+  color: var(--color-primary-200);
 }
 .Slider__value {
   font-size: 1.4rem;
   font-weight: 600;
-  background-color: var(--primary-600);
+  background-color: var(--color-primary-600);
   padding: 6px 8px;
   border-radius: calc(var(--border-radius) / 2);
   min-width: 40px;
@@ -34,7 +38,7 @@
   top: 50%;
   transform: translateY(-50%);
   height: 8px;
-  background: var(--primary-600);
+  background: var(--color-primary-600);
   cursor: pointer;
 }
 .Slider__track-0 {
@@ -50,7 +54,7 @@
   transform: translateY(-50%);
   width: var(--thumb-width);
   height: var(--thumb-width);
-  background: var(--accent);
+  background: var(--color-accent);
   border-radius: 50%;
   cursor: pointer;
   box-shadow: var(--shadow-low);
@@ -58,7 +62,7 @@
 .Slider__mark {
   width: var(--marker-width);
   height: var(--marker-width);
-  background-color: var(--primary-400);
+  background-color: var(--color-primary-400);
   cursor: pointer;
   border-radius: 2px;
   vertical-align: middle;
@@ -74,5 +78,5 @@
 .Slider__bound {
   width: var(--thumb-width);
   font-weight: 400;
-  color: var(--primary-200);
+  color: var(--color-primary-200);
 }

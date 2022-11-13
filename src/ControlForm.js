@@ -1,5 +1,5 @@
 import DeviceSettings from './DeviceSettings';
-import Slider from './Slider';
+import GeneralSettings from './GeneralSettings';
 
 function ControlForm({
   generalSettings,
@@ -9,26 +9,27 @@ function ControlForm({
 }) {
   return (
     <form id='controlForm' className='ControlForm'>
-      <Slider
+      <GeneralSettings
+        settings={generalSettings}
         onSliderChange={onSliderChange}
-        currentValue={generalSettings.baseFontSize}
-        range={[10, 24]}
-        targetSetting='baseFontSize'
-        label='Base font size'
-        unit='px'
-      />
-      <Slider
-        onSliderChange={onSliderChange}
-        currentValue={generalSettings.children}
-        range={[2, 10]}
-        targetSetting='children'
-        label='Child elements'
       />
       <DeviceSettings
         device='mobile'
         onSliderChange={deviceHandlers[0]}
         onCheckboxChange={deviceHandlers[1]}
         settings={deviceSettings.mobile}
+      />
+      <DeviceSettings
+        device='tablet'
+        onSliderChange={deviceHandlers[0]}
+        onCheckboxChange={deviceHandlers[1]}
+        settings={deviceSettings.tablet}
+      />
+      <DeviceSettings
+        device='desktop'
+        onSliderChange={deviceHandlers[0]}
+        onCheckboxChange={deviceHandlers[1]}
+        settings={deviceSettings.desktop}
       />
     </form>
   )

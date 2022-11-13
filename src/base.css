@@ -10,13 +10,13 @@ html {
 
 :root {
   /* Colors */
-  --primary-900: #060606;
-  --primary-800: #16171a;
-  --primary-700: #1c1c26;
-  --primary-600: #262731;
-  --primary-400: #43434e;
-  --primary-200: #b0bec5;
-  --accent: #ffb700;
+  --color-primary-900: #060606;
+  --color-primary-800: #16171a;
+  --color-primary-700: #1c1c26;
+  --color-primary-600: #262731;
+  --color-primary-400: #43434e;
+  --color-primary-200: #b0bec5;
+  --color-accent: #ffb700;
 
   /* Shadows */
   --shadow-low:
@@ -28,19 +28,30 @@ html {
     0px 8px 32px -8px rgba(0, 0, 0, 0.1);
 
   /* Borders */
-  --border: inset 0 0 0 1px hsl(0deg 0% 100% / 5%);
+  --border-subtle: inset 0 0 0 1px hsl(0deg 0% 100% / 5%);
 
   /* Font Scale */
   --font-h1: 500 3.2rem/1 'Inter', sans-serif;
+  --font-h3: 500 1.6rem/1.2 'Inter', sans-serif;
   --font-p: 400 1.4rem/1.35 'Inter', sans-serif;
+  --font-label: 400 1.2rem/1.35 'Inter', sans-serif;
 
   /* Padding */
-  --outer-padding: 6.4rem;
-  --inner-padding: 3.2rem;
+  --padding-inner: 6.4rem;
+  --padding-outer: 3.2rem;
 
   /* Misc */
   --border-radius: 1rem;
 }
+
+body {
+  background-color: var(--color-primary-900);
+  margin: 0;
+  color: #fff;
+  font-size: 10px;
+}
+
+/* Typography */
 
 h1,
 h2,
@@ -50,25 +61,23 @@ h5,
 h6 {
   margin: 0
 }
-
 h1 {
   font: var(--font-h1);
   letter-spacing: -.05ch;
 }
-
-body {
-  background-color: var(--primary-900);
-  margin: 0;
-  color: #fff;
-  font-size: 10px;
+h3 {
+  font: var(--font-h3);
+  letter-spacing: -.05ch;
+  width: 100%;
+  border-bottom: 1px solid hsl(0deg 0% 100% / 5%);
+  padding-bottom: 8px;
 }
-
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
 }
 
 .App {
-  padding: var(--outer-padding);
+  padding: var(--padding-inner);
   height: 100vh;
   min-height: 700px;
   box-sizing: border-box;
@@ -86,13 +95,13 @@ code {
 }
 
 .Controls, .Output {
-  padding: var(--inner-padding);
-  background-color: var(--primary-800);
+  padding: var(--padding-outer);
+  background-color: var(--color-primary-800);
   border-radius: var(--border-radius);
   display: flex;
   flex-direction: column;
   gap: 24px;
-  box-shadow: var(--border);
+  box-shadow: var(--border-subtle);
   overflow: scroll;
 }
 
@@ -103,7 +112,7 @@ code {
 .ControlForm {
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 40px;
 }
 
 .Output {
