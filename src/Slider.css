@@ -1,5 +1,5 @@
 .Slider {
-  --thumb-width: 16px;
+  --thumb-width: 20px;
   --marker-width: 2px;
   --marker-margin: calc((var(--thumb-width) - var(--marker-width)) / 2);
   --top-margin: 16px;
@@ -12,7 +12,7 @@
 }
 .Slider__control {
   height: var(--thumb-width);
-  position: relative;
+  cursor: pointer;
 }
 .Slider__label--container {
   display: flex;
@@ -55,8 +55,14 @@
   height: var(--thumb-width);
   background: var(--color-accent);
   border-radius: 50%;
-  cursor: pointer;
+  cursor: grab;
   box-shadow: var(--shadow-low);
+}
+.Slider__thumb:active {
+  cursor: grabbing;
+}
+.Slider__thumb:active ~ .Slider__mark {
+  cursor: grabbing;
 }
 .Slider__mark {
   width: var(--marker-width);

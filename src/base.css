@@ -103,7 +103,34 @@ code {
   flex-direction: column;
   gap: 24px;
   box-shadow: var(--border-subtle);
-  overflow: scroll;
+  overflow: hidden;
+  overflow-y: overlay;
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+.App ::-webkit-scrollbar,
+.App ::-webkit-scrollbar-track-piece,
+.App ::-webkit-scrollbar-track,
+.App ::-webkit-scrollbar-corner,
+.App ::-webkit-scrollbar-button,
+.App ::-webkit-resizer {
+  background-color: transparent !important;
+}
+
+.App ::-webkit-scrollbar-button,
+.App ::-webkit-scrollbar-corner,
+.App ::-webkit-resizer {
+  display: none !important;
+}
+
+.App ::-webkit-scrollbar-thumb {
+  background-color: var(--color-primary-400) !important;
+  border-radius: 100px;
+}
+
+.App ::-webkit-scrollbar {
+  width: 8px;
 }
 
 .Controls {
