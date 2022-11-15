@@ -1,15 +1,25 @@
 import Slider from './Slider';
 import Checkbox from './Checkbox';
+import Breakpoint from './Breakpoint';
 
 function DeviceSettings({
   device,
   onSliderChange,
   onCheckboxChange,
+  onInputChange,
   settings
 }) {
   return (
-    <div className='BreakpointSettings'>
+    <div className='DeviceSettings'>
       <h3>{device[0].toUpperCase() + device.slice(1).toLowerCase()}</h3>
+      {device === 'desktop' ? null : (
+        <Breakpoint
+          currentValue={settings.maxWidth}
+          device={device}
+          targetSetting='maxWidth'
+          onInputChange={onInputChange}
+        />
+      )}
       <Slider
         onSliderChange={onSliderChange}
         currentValue={settings.columns}

@@ -41,6 +41,9 @@ html {
   --padding-inner: 6.4rem;
   --padding-outer: 3.2rem;
 
+  /* Margins */
+  --margin-flow: 1.6rem;
+
   /* Misc */
   --border-radius: 1rem;
 }
@@ -145,4 +148,6 @@ code {
 
 .Output {
   grid-area: Output;
+  display: flex;
+  justify-content: center;
 }

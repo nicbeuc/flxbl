@@ -1,0 +1,37 @@
+* + .Breakpoint {
+  margin-top: var(--margin-flow);
+}
+.Breakpoint {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.Breakpoint__label {
+  font: var(--font-label);
+  color: var(--color-primary-200);
+}
+.Breakpoint input {
+  background-color: var(--color-primary-600);
+  border: 0;
+  box-shadow: var(--border-subtle);
+  font-size: 1.2rem;
+  border-radius: calc(var(--border-radius) / 2);
+  color: #fff;
+  padding: 6px 8px;
+  max-width: calc(16px + 4ch);
+  appearance: textfield;
+  margin: 0;
+  display: block;
+  min-width: unset;
+  text-align: right;
+}
+.Breakpoint input::-webkit-inner-spin-button,
+.Breakpoint input::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+.Breakpoint__input {
+  display: flex;
+  align-items: baseline;
+  gap: 6px;
+}

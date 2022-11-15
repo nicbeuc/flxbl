@@ -2,13 +2,12 @@
   --thumb-width: 20px;
   --marker-width: 2px;
   --marker-margin: calc((var(--thumb-width) - var(--marker-width)) / 2);
-  --top-margin: 16px;
   display: flex;
   flex-direction: column;
   gap: 8px;
 }
 * + .Slider {
-  margin-top: var(--top-margin);
+  margin-top: var(--margin-flow);
 }
 .Slider__control {
   height: var(--thumb-width);
