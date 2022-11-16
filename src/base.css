@@ -133,6 +133,7 @@ code {
 }
 
 .App ::-webkit-scrollbar {
+  display: none;
   width: 8px;
 }
 

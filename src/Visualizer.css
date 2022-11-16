@@ -4,6 +4,8 @@
 }
 .Visualizer__child {
   flex: 1 0 auto;
-  height: 100px;
-  background-color: grey;
+  height: auto;
+  aspect-ratio: 1/1;
+  color: #333;
+  background-color: var(--color-primary-200);
 }

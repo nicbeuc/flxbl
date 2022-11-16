@@ -6,7 +6,7 @@ function Visualizer({
   const getChildren = children => {
     let content = [];
     for (let i = 0; i < children; i++) {
-      content.push(<div className='Visualizer__child' key={i + 1}>{i + 1}</div>);
+      content.push(<div className='Visualizer__child' key={i + 1}></div>);
     }
     return content;
   };

@@ -39,5 +39,5 @@ input[type='checkbox']:checked + label::after {
   background: var(--color-accent);
 }
 input[type='checkbox']:focus + label::after {
-  outline: var(--color-accent) solid 1px;
+  outline: var(--color-primary-200) solid 1px;
 }
