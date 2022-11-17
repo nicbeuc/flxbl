@@ -44,6 +44,10 @@ html {
   /* Margins */
   --margin-flow: 1.6rem;
 
+  /* Transitions */
+  --transition-easing: ease;
+  --transition-fast: .2s var(--transition-easing);
+
   /* Misc */
   --border-radius: 1rem;
 }

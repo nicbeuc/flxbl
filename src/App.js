@@ -36,6 +36,7 @@ const defDeviceSettings = {
 function App() {
   const [generalSettings, setGeneralSettings] = useState(defGeneralSettings);
   const [deviceSettings, setDeviceSettings] = useState(defDeviceSettings);
+  const [view, setView] = useState('desktop');
 
   useEffect(() => {
     console.log(deviceSettings)
@@ -78,6 +79,10 @@ function App() {
     }));
   }
 
+  function handleViewportButtonClick(e) {
+    setView(e.target.dataset.view);
+  }
+
   return (
     <div className='App'>
       <Header />
@@ -90,7 +95,12 @@ function App() {
         />
       </div>
       <div className='Output'>
-        <Visualizer settings={generalSettings} />
+        <Visualizer
+          generalSettings={generalSettings}
+          deviceSettings={deviceSettings}
+          onButtonClick={handleViewportButtonClick}
+          view={view}
+        />
       </div>
     </div>
   );

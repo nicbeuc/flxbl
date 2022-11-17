@@ -1,8 +1,23 @@
+.Visualizer {
+  display: grid;
+  grid-template-rows: 64px auto;
+  height: 100%;
+}
+.Visualizer__viewport {
+  box-shadow: var(--border-subtle);
+  padding: 1rem;
+  border-radius: 16px;
+  align-self: center;
+  justify-self: center;
+  box-sizing: border-box;
+  transition: width var(--transition-fast);
+}
 .Visualizer__children {
   display: flex;
   gap: 1rem;
 }
 .Visualizer__child {
+  border-radius: 5%;
   flex: 1 0 auto;
   height: auto;
   aspect-ratio: 1/1;
