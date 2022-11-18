@@ -20,15 +20,15 @@ const defDeviceSettings = {
   tablet: {
     maxWidth: 60,
     columns: 3,
-    columnGap: 2,
-    rowGap: 2,
+    columnGap: 1,
+    rowGap: 1,
     fillAvailable: false,
   },
   desktop: {
     maxWidth: 120,
     columns: 4,
-    columnGap: 2,
-    rowGap: 2,
+    columnGap: 1,
+    rowGap: 1,
     fillAvailable: false,
   }
 }

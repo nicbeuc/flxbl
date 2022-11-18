@@ -78,7 +78,8 @@ function Visualizer({
           <div
             className='Visualizer__children'
             style={{
-              columnGap: `${deviceSettings[view].columnGap}rem`
+              columnGap: `${deviceSettings[view].columnGap}rem`,
+              rowGap: `${deviceSettings[view].rowGap}rem`
             }}
           >
             {getChildren(generalSettings.children)}
