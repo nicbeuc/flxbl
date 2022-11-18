@@ -6,22 +6,27 @@ function Visualizer({
   onButtonClick,
   view
 }) {
+
+  // calc((100% - 1rem) / 2)
+  console.log(deviceSettings[view].columnGap * (deviceSettings[view].columns - 1));
+
   const getChildren = children => {
     let content = [];
     for (let i = 0; i < children; i++) {
-      content.push(<div className='Visualizer__child' key={i + 1}></div>);
+      content.push(
+        <div
+          className='Visualizer__child'
+          key={i + 1}
+          style={{
+            flexBasis: `calc((100% - ${deviceSettings[view].columnGap * (deviceSettings[view].columns - 1)}rem) / ${deviceSettings[view].columns})`
+          }}></div>
+      );
     }
     return content;
   };
 
   const getViewportWidth = view => {
-    const basePx = generalSettings.baseFontSize;
-    const denom = 1920;
-    let nom = null;
-    if (view !== 'desktop') {
-      nom = basePx * deviceSettings[view].maxWidth;
-    }
-    return ((nom ?? 1920) / denom) * 100;
+    return (deviceSettings[view].maxWidth / deviceSettings.desktop.maxWidth) * 100;
   }
 
   return (
@@ -33,7 +38,7 @@ function Visualizer({
             width: getViewportWidth(view) + '%'
           }}
         >
-          {view[0].toUpperCase() + view.substring(1)}
+          {`${view[0].toUpperCase() + view.substring(1)} - ${deviceSettings[view].maxWidth * generalSettings.baseFontSize}px`}
         </div>
         <button
           data-view='desktop'
@@ -70,7 +75,12 @@ function Visualizer({
             width: getViewportWidth(view) + '%'
           }}
         >
-          <div className='Visualizer__children'>
+          <div
+            className='Visualizer__children'
+            style={{
+              columnGap: `${deviceSettings[view].columnGap}rem`
+            }}
+          >
             {getChildren(generalSettings.children)}
           </div>
         </div>

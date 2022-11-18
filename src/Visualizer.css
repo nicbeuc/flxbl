@@ -18,19 +18,32 @@
 .Visualizer__children {
   display: flex;
   gap: 1rem;
+  flex-wrap: wrap;
 }
 .Visualizer__child {
   border-radius: 5%;
-  flex: 1 0 auto;
+  flex-shrink: 0;
+  flex-grow: 0;
   height: auto;
   aspect-ratio: 1/1;
   color: #333;
-  background-color: var(--color-primary-200);
+  background-color: var(--color-accent);
 }
 .Visualizer__buttons {
   position: relative;
   margin-right: var(--padding-outer);
   margin-left: var(--padding-outer);
+  background-color: var(--color-primary-700);
+}
+.Visualizer__buttons::before {
+  content: '';
+  position: absolute;
+  width: calc(100% + (2 * var(--padding-outer)));
+  height: 100%;
+  background-color: var(--color-primary-700);
+  left: calc(var(--padding-outer) * -1);
+  box-sizing: border-box;
+  box-shadow: 0 0 0 1px var(--color-primary-500);
 }
 .Visualizer__button {
   z-index: 1;
@@ -47,8 +60,9 @@
   border-right: 1px solid;
   border-left: 1px solid;
   box-sizing: border-box;
-  border-color: var(--color-primary-200);
+  border-color: var(--color-primary-500);
   cursor: pointer;
+  transition: width var(--transition-fast);
 }
 .Visualizer__current-view {
   z-index: 0;
@@ -62,7 +76,7 @@
   text-align: center;
   justify-content: center;
   align-items: center;
-  background-color: var(--color-primary-400);
+  background-color: var(--color-primary-600);
   transition: width var(--transition-fast);
 }
 /* .Visualizer__button.active {

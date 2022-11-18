@@ -10,13 +10,16 @@ html {
 
 :root {
   /* Colors */
-  --color-primary-900: #060606;
-  --color-primary-800: #16171a;
-  --color-primary-700: #1c1c26;
-  --color-primary-600: #262731;
-  --color-primary-400: #43434e;
-  --color-primary-200: #b0bec5;
-  --color-accent: #ffb700;
+  --color-primary-900: #212121;
+  --color-primary-800: #424242;
+  --color-primary-700: #616161;
+  --color-primary-600: #757575;
+  --color-primary-500: #9E9E9E;
+  --color-primary-400: #BDBDBD;
+  --color-primary-300: #E0E0E0;
+  --color-primary-200: #EEEEEE;
+  --color-primary-100: #F5F5F5;
+  --color-accent: #FFCA28;
 
   /* Shadows */
   --shadow-low:
@@ -28,7 +31,7 @@ html {
     0px 8px 32px -8px rgba(0, 0, 0, 0.1);
 
   /* Borders */
-  --border-subtle: inset 0 0 0 1px hsl(0deg 0% 100% / 5%);
+  --border-subtle: inset 0 0 0 1px var(--color-primary-700);
 
   /* Font Scale */
   --font-h1: 500 3.2rem/1 'Inter', sans-serif;
@@ -77,7 +80,7 @@ h3 {
   font: var(--font-h3);
   letter-spacing: -.05ch;
   width: 100%;
-  border-bottom: 1px solid hsl(0deg 0% 100% / 5%);
+  border-bottom: 1px solid var(--color-primary-700);
   padding-bottom: 8px;
 }
 code {

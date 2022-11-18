@@ -25,7 +25,7 @@ const defDeviceSettings = {
     fillAvailable: false,
   },
   desktop: {
-    maxWidth: null,
+    maxWidth: 120,
     columns: 4,
     columnGap: 2,
     rowGap: 2,
