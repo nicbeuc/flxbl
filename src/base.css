@@ -102,8 +102,11 @@ code {
   grid-area: Header;
 }
 
-.Controls, .Output {
+.Controls {
   padding: var(--padding-outer);
+}
+
+.Controls, .Output {
   background-color: var(--color-primary-800);
   border-radius: var(--border-radius);
   display: flex;

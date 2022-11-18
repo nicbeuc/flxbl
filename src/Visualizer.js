@@ -27,18 +27,52 @@ function Visualizer({
   return (
     <div className='Visualizer'>
       <div className='Visualizer__buttons'>
-        <button data-view='desktop' onClick={onButtonClick} className='Visualizer__button'>Desktop</button>
-        <button data-view='tablet' onClick={onButtonClick} className='Visualizer__button'>Tablet</button>
-        <button data-view='mobile' onClick={onButtonClick} className='Visualizer__button'>Mobile</button>
+        <div
+          className='Visualizer__current-view'
+          style={{
+            width: getViewportWidth(view) + '%'
+          }}
+        >
+          {view[0].toUpperCase() + view.substring(1)}
+        </div>
+        <button
+          data-view='desktop'
+          onClick={onButtonClick}
+          className={`Visualizer__button${view === 'desktop' ? ' active' : ''}`}
+          style={{
+            width: getViewportWidth('desktop') + '%'
+          }}
+        >
+        </button>
+        <button
+          data-view='tablet'
+          onClick={onButtonClick}
+          className={`Visualizer__button${view === 'tablet' ? ' active' : ''}`}
+          style={{
+            width: getViewportWidth('tablet') + '%'
+          }}
+        >
+        </button>
+        <button
+          data-view='mobile'
+          onClick={onButtonClick}
+          className={`Visualizer__button${view === 'mobile' ? ' active' : ''}`}
+          style={{
+            width: getViewportWidth('mobile') + '%'
+          }}
+        >
+        </button>
       </div>
-      <div
-        className='Visualizer__viewport'
-        style={{
-          width: getViewportWidth(view) + '%'
-        }}
-      >
-        <div className='Visualizer__children'>
-          {getChildren(generalSettings.children)}
+      <div className='Visualizer__viewport-container'>
+        <div
+          className='Visualizer__viewport'
+          style={{
+            width: getViewportWidth(view) + '%'
+          }}
+        >
+          <div className='Visualizer__children'>
+            {getChildren(generalSettings.children)}
+          </div>
         </div>
       </div>
     </div>

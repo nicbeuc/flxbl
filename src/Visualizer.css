@@ -1,14 +1,17 @@
 .Visualizer {
   display: grid;
-  grid-template-rows: 64px auto;
+  grid-template-rows: 24px auto;
   height: 100%;
+}
+.Visualizer__viewport-container {
+  padding: var(--padding-outer);
+  display: grid;
+  place-items: center;
 }
 .Visualizer__viewport {
   box-shadow: var(--border-subtle);
   padding: 1rem;
   border-radius: 16px;
-  align-self: center;
-  justify-self: center;
   box-sizing: border-box;
   transition: width var(--transition-fast);
 }
@@ -24,3 +27,44 @@
   color: #333;
   background-color: var(--color-primary-200);
 }
+.Visualizer__buttons {
+  position: relative;
+  margin-right: var(--padding-outer);
+  margin-left: var(--padding-outer);
+}
+.Visualizer__button {
+  z-index: 1;
+  all: inherit;
+  top: 0;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  display: block;
+  position: absolute;
+  background-color: transparent;
+  height: 100%;
+  text-align: center;
+  border-right: 1px solid;
+  border-left: 1px solid;
+  box-sizing: border-box;
+  border-color: var(--color-primary-200);
+  cursor: pointer;
+}
+.Visualizer__current-view {
+  z-index: 0;
+  position: absolute;
+  top: 0;
+  height: 100%;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--color-primary-400);
+  transition: width var(--transition-fast);
+}
+/* .Visualizer__button.active {
+  background-color: var(--color-primary-200);
+} */
