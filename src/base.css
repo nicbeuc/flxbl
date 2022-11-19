@@ -32,6 +32,7 @@ html {
 
   /* Borders */
   --border-subtle: inset 0 0 0 1px var(--color-primary-700);
+  --border-accent: inset 0 0 0 1px var(--color-accent);
 
   /* Font Scale */
   --font-h1: 500 3.2rem/1 'Inter', sans-serif;
@@ -107,6 +108,11 @@ code {
 
 .Controls {
   padding: var(--padding-outer);
+  overflow-y: overlay
+}
+
+.Output {
+  overflow: hidden;
 }
 
 .Controls, .Output {
@@ -116,8 +122,6 @@ code {
   flex-direction: column;
   gap: 24px;
   box-shadow: var(--border-subtle);
-  overflow: hidden;
-  overflow-y: overlay;
   -ms-overflow-style: none;  /* IE and Edge */
   scrollbar-width: none; /* Firefox */
 }

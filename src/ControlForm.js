@@ -14,11 +14,11 @@ function ControlForm({
         onSliderChange={onSliderChange}
       />
       <DeviceSettings
-        device='mobile'
+        device='desktop'
         onSliderChange={deviceHandlers[0]}
         onCheckboxChange={deviceHandlers[1]}
         onInputChange={deviceHandlers[2]}
-        settings={deviceSettings.mobile}
+        settings={deviceSettings.desktop}
       />
       <DeviceSettings
         device='tablet'
@@ -28,11 +28,11 @@ function ControlForm({
         settings={deviceSettings.tablet}
       />
       <DeviceSettings
-        device='desktop'
+        device='mobile'
         onSliderChange={deviceHandlers[0]}
         onCheckboxChange={deviceHandlers[1]}
         onInputChange={deviceHandlers[2]}
-        settings={deviceSettings.desktop}
+        settings={deviceSettings.mobile}
       />
     </form>
   )

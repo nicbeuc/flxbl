@@ -7,27 +7,28 @@
   padding: var(--padding-outer);
   display: grid;
   place-items: center;
+  overflow-y: overlay;
 }
 .Visualizer__viewport {
-  box-shadow: var(--border-subtle);
-  padding: 1rem;
-  border-radius: 16px;
+  /* box-shadow: var(--border-subtle); */
+  /* padding: 1.6rem;
+  border-radius: 24px; */
   box-sizing: border-box;
   /* transition: width var(--transition-fast); */
 }
 .Visualizer__children {
   display: flex;
-  gap: 1rem;
   flex-wrap: wrap;
 }
 .Visualizer__child {
-  border-radius: 5%;
+  border-radius: .8rem;
   flex-shrink: 0;
   flex-grow: 0;
   height: auto;
   aspect-ratio: 1/1;
   color: #333;
-  background-color: var(--color-accent);
+  background-color: transparent;
+  box-shadow: var(--border-accent);
 }
 .Visualizer__buttons {
   position: relative;

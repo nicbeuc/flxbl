@@ -18,7 +18,8 @@ function Visualizer({
           className='Visualizer__child'
           key={i + 1}
           style={{
-            flexBasis: `calc((100% - ${deviceSettings[view].columnGap * (deviceSettings[view].columns - 1)}rem) / ${deviceSettings[view].columns})`
+            flexBasis: `calc((100% - ${deviceSettings[view].columnGap * (deviceSettings[view].columns - 1)}rem) / ${deviceSettings[view].columns})`,
+            flexGrow: deviceSettings[view].fillAvailable ? 1 : 0
           }}></div>
       );
     }

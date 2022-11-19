@@ -11,3 +11,4 @@ A no-nonsense flex grid generator.
 - Sass support
 - Multiple unit support
 - useContext
+- Persistent state
