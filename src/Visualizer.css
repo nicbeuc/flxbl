@@ -1,7 +1,8 @@
 .Visualizer {
   display: grid;
-  grid-template-rows: 24px auto;
+  grid-template-rows: auto 24px;
   height: 100%;
+  overflow: hidden;
 }
 .Visualizer__viewport-container {
   padding: var(--padding-outer);
@@ -29,14 +30,12 @@
   position: relative;
   margin-right: var(--padding-outer);
   margin-left: var(--padding-outer);
-  background-color: var(--color-dark-400);
 }
 .Visualizer__buttons::before {
   content: '';
   position: absolute;
   width: calc(100% + (2 * var(--padding-outer)));
   height: 100%;
-  background-color: var(--color-dark-400);
   left: calc(var(--padding-outer) * -1);
   box-sizing: border-box;
   box-shadow: 0 0 0 1px var(--color-border);
@@ -72,5 +71,5 @@
   text-align: center;
   justify-content: center;
   align-items: center;
-  background-color: var(--color-dark-300);
+  background-color: var(--color-dark-400);
 }

@@ -28,6 +28,24 @@ function Visualizer({
 
   return (
     <div className='Visualizer'>
+      <div className='Visualizer__viewport-container'>
+        <div
+          className='Visualizer__viewport'
+          style={{
+            width: getViewportWidth(view) + '%'
+          }}
+        >
+          <div
+            className='Visualizer__children'
+            style={{
+              columnGap: `${deviceSettings[view].columnGap}rem`,
+              rowGap: `${deviceSettings[view].rowGap}rem`
+            }}
+          >
+            {getChildren(generalSettings.children)}
+          </div>
+        </div>
+      </div>
       <div className='Visualizer__buttons'>
         <div
           className='Visualizer__current-view'
@@ -64,24 +82,6 @@ function Visualizer({
           }}
         >
         </button>
-      </div>
-      <div className='Visualizer__viewport-container'>
-        <div
-          className='Visualizer__viewport'
-          style={{
-            width: getViewportWidth(view) + '%'
-          }}
-        >
-          <div
-            className='Visualizer__children'
-            style={{
-              columnGap: `${deviceSettings[view].columnGap}rem`,
-              rowGap: `${deviceSettings[view].rowGap}rem`
-            }}
-          >
-            {getChildren(generalSettings.children)}
-          </div>
-        </div>
       </div>
     </div>
   )

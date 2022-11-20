@@ -20,11 +20,11 @@ html {
   --color-primary-200: #EEEEEE;
   --color-primary-100: #F5F5F5;
   --color-dark-600: rgba(0, 0, 0, 1);
-  --color-dark-500: rgba(26, 26, 26, 1);
+  --color-dark-500: rgba(24, 24, 24, 1);
   --color-dark-400: rgba(80, 80, 80, 1);
   --color-dark-300: rgb(120, 120, 120);
   --color-dark-200: rgba(200, 200, 200, 1);
-  --color-dark-200: rgba(255, 255, 255, 1);
+  --color-dark-100: rgba(255, 255, 255, 1);
   --color-border: rgba(255, 255, 255, .2);
   --color-accent: #FFCA28;
 
@@ -129,7 +129,8 @@ code {
   display: flex;
   flex-direction: column;
   gap: 24px;
-  box-shadow: var(--border-subtle);
+  border: 1px solid var(--color-border);
+  box-sizing: border-box;
   -ms-overflow-style: none;  /* IE and Edge */
   scrollbar-width: none; /* Firefox */
 }
@@ -171,6 +172,7 @@ code {
 
 .Output {
   grid-area: Output;
-  display: flex;
-  justify-content: center;
+  display: grid;
+  grid-template-rows: 40px auto;
+  gap: 0;
 }
