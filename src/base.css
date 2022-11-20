@@ -47,6 +47,7 @@ html {
   --font-p: 400 1.4rem/1.35 'Inter', sans-serif;
   --font-label: 400 1.2rem/1.35 'Inter', sans-serif;
   --font-value: 600 1.2rem/1.35 'Inter', sans-serif;
+  --font-code: 400 1.4rem/ 1.5 'Fira Code', monospace;
 
   /* Padding */
   --padding-inner: 6.4rem;
@@ -93,7 +94,7 @@ h3 {
   padding-bottom: 8px;
 }
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
+  font: var(--font-code);
 }
 
 .App {

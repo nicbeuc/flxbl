@@ -3,6 +3,7 @@ import ControlForm from './ControlForm';
 import Header from './Header';
 import Visualizer from './Visualizer';
 import OutputTabs from './OutputTabs';
+import CodeOutput from './CodeOutput';
 
 // Default Parameters
 const defGeneralSettings = {
@@ -101,12 +102,16 @@ function App() {
           activeTab={tab}
           onTabClick={handleTabClick}
         />
-        <Visualizer
-          generalSettings={generalSettings}
-          deviceSettings={deviceSettings}
-          onButtonClick={handleViewportButtonClick}
-          view={view}
-        />
+        { tab === 'visualizer' ?
+          <Visualizer
+            generalSettings={generalSettings}
+            deviceSettings={deviceSettings}
+            onButtonClick={handleViewportButtonClick}
+            view={view}
+          />
+        :
+          <CodeOutput />
+        }
       </div>
     </div>
   );
