@@ -1,7 +1,8 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import ControlForm from './ControlForm';
 import Header from './Header';
 import Visualizer from './Visualizer';
+import OutputTabs from './OutputTabs';
 
 // Default Parameters
 const defGeneralSettings = {
@@ -37,10 +38,7 @@ function App() {
   const [generalSettings, setGeneralSettings] = useState(defGeneralSettings);
   const [deviceSettings, setDeviceSettings] = useState(defDeviceSettings);
   const [view, setView] = useState('desktop');
-
-  useEffect(() => {
-    console.log(deviceSettings)
-  }, [deviceSettings]);
+  const [tab, setTab] = useState('visualizer');
 
   function handleGeneralSliderChange(value, targetSetting) {
     setGeneralSettings((prevSettings) => ({
@@ -83,6 +81,10 @@ function App() {
     setView(e.target.dataset.view);
   }
 
+  function handleTabClick(e) {
+    setTab(e.target.dataset.content);
+  }
+
   return (
     <div className='App'>
       <Header />
@@ -95,6 +97,10 @@ function App() {
         />
       </div>
       <div className='Output'>
+        <OutputTabs
+          activeTab={tab}
+          onTabClick={handleTabClick}
+        />
         <Visualizer
           generalSettings={generalSettings}
           deviceSettings={deviceSettings}

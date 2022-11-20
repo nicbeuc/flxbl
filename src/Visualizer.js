@@ -6,10 +6,6 @@ function Visualizer({
   onButtonClick,
   view
 }) {
-
-  // calc((100% - 1rem) / 2)
-  console.log(deviceSettings[view].columnGap * (deviceSettings[view].columns - 1));
-
   const getChildren = children => {
     let content = [];
     for (let i = 0; i < children; i++) {
