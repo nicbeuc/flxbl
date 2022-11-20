@@ -19,6 +19,13 @@ html {
   --color-primary-300: #E0E0E0;
   --color-primary-200: #EEEEEE;
   --color-primary-100: #F5F5F5;
+  --color-dark-600: rgba(0, 0, 0, 1);
+  --color-dark-500: rgba(26, 26, 26, 1);
+  --color-dark-400: rgba(80, 80, 80, 1);
+  --color-dark-300: rgb(120, 120, 120);
+  --color-dark-200: rgba(200, 200, 200, 1);
+  --color-dark-200: rgba(255, 255, 255, 1);
+  --color-border: rgba(255, 255, 255, .2);
   --color-accent: #FFCA28;
 
   /* Shadows */
@@ -31,7 +38,7 @@ html {
     0px 8px 32px -8px rgba(0, 0, 0, 0.1);
 
   /* Borders */
-  --border-subtle: inset 0 0 0 1px var(--color-primary-700);
+  --border-subtle: inset 0 0 0 1px var(--color-border);
   --border-accent: inset 0 0 0 1px var(--color-accent);
 
   /* Font Scale */
@@ -57,7 +64,7 @@ html {
 }
 
 body {
-  background-color: var(--color-primary-900);
+  background-color: var(--color-dark-600);
   margin: 0;
   color: #fff;
   font-size: 10px;
@@ -80,8 +87,9 @@ h1 {
 h3 {
   font: var(--font-h3);
   letter-spacing: -.05ch;
+  font-weight: 600;
   width: 100%;
-  border-bottom: 1px solid var(--color-primary-700);
+  border-bottom: 1px solid var(--color-border);
   padding-bottom: 8px;
 }
 code {
@@ -116,7 +124,7 @@ code {
 }
 
 .Controls, .Output {
-  background-color: var(--color-primary-800);
+  background-color: var(--color-dark-500);
   border-radius: var(--border-radius);
   display: flex;
   flex-direction: column;
@@ -142,7 +150,7 @@ code {
 }
 
 .App ::-webkit-scrollbar-thumb {
-  background-color: var(--color-primary-400) !important;
+  background-color: var(--color-dark-400) !important;
   border-radius: 100px;
 }
 

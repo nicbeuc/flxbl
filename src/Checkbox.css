@@ -18,7 +18,7 @@ input[type='checkbox'] + label {
   display: flex;
   position: relative;
   font: var(--font-label);
-  color: var(--color-primary-200);
+  color: var(--color-dark-200);
   align-items: center;
   justify-content: space-between;
   cursor: pointer;
@@ -30,7 +30,7 @@ input[type='checkbox'] + label::after {
   display: inline-block;
   width: var(--checkbox-width);
   height: var(--checkbox-width);
-  background: var(--color-primary-600);
+  background: var(--color-dark-400);
   box-shadow: var(--border);
   border-radius: 3px;
   flex: 0 0 var(--checkbox-width);
@@ -39,5 +39,5 @@ input[type='checkbox']:checked + label::after {
   background: var(--color-accent);
 }
 input[type='checkbox']:focus + label::after {
-  outline: var(--color-primary-200) solid 1px;
+  outline: var(--color-border) solid 1px;
 }

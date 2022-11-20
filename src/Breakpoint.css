@@ -8,10 +8,10 @@
 }
 .Breakpoint__label {
   font: var(--font-label);
-  color: var(--color-primary-200);
+  color: var(--color-dark-200);
 }
 .Breakpoint input {
-  background-color: var(--color-primary-600);
+  background-color: var(--color-dark-400);
   border: 0;
   box-shadow: var(--border-subtle);
   font-size: 1.2rem;
