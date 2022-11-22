@@ -110,7 +110,9 @@ function App() {
             view={view}
           />
         :
-          <CodeOutput />
+          <CodeOutput
+            deviceSettings={deviceSettings}
+          />
         }
       </div>
     </div>

@@ -1,3 +1,7 @@
 .CodeOutput {
   padding: var(--padding-outer);
+  overflow-y: overlay;
+}
+.CodeOutput pre {
+  background: var(--color-dark-500) !important;
 }

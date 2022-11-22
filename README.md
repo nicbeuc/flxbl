@@ -12,3 +12,4 @@ A no-nonsense flex grid generator.
 - Multiple unit support
 - useContext
 - Persistent state
+- CSS modules
