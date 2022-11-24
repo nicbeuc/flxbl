@@ -36,9 +36,28 @@ function CodeOutput({
   }
 }`);
 
+  function handleCopyButtonClick() {
+    navigator.clipboard.writeText(code);
+  }
+
   return (
     <div className='CodeOutput'>
-      <SyntaxHighlighter language="css" style={a11yDark}>
+      <button className='CodeOutput__copy' aria-label='Copy to clipboard' onClick={handleCopyButtonClick}>
+        <svg
+          className='icon icon__copy'
+          aria-hidden='true'
+          fill='none'
+          stroke='currentColor'
+          stroke-linecap='round'
+          stroke-linejoin='round'
+          stroke-width='2'
+          viewBox='0 0 24 24'
+        >
+          <rect width='13' height='13' x='9' y='9' rx='2' ry='2'/>
+          <path d='M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1'/>
+        </svg>
+      </button>
+      <SyntaxHighlighter language='css' style={a11yDark}>
         {code}
       </SyntaxHighlighter>
     </div>
