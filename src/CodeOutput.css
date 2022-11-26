@@ -23,4 +23,12 @@
   background-color: var(--color-dark-400);
   border-radius: 6px;
   box-shadow: inset 0 0 0 1px var(--color-border);
+  transition: all var(--transition-fast);
+}
+.CodeOutput__copy:hover {
+  box-shadow: inset 0 0 0 1px var(--color-dark-200);
+}
+.CodeOutput__copy:active {
+  box-shadow: inset 0 0 0 1px var(--color-dark-200);
+  transform: translateY(1px) scale(0.95);
 }
