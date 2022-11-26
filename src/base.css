@@ -59,6 +59,7 @@ html {
   /* Transitions */
   --transition-easing: ease;
   --transition-fast: .2s var(--transition-easing);
+  --transition-med: .35s var(--transition-easing);
 
   /* Misc */
   --border-radius: 1rem;
@@ -173,6 +174,7 @@ code {
 
 .Output {
   grid-area: Output;
+  position: relative;
   display: grid;
   grid-template-rows: 40px auto;
   gap: 0;

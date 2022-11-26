@@ -1,0 +1,18 @@
+.Toast {
+  --height: 40px;
+  height: 40px;
+  position: absolute;
+  opacity: 0;
+  bottom: calc(var(--height) * -1);
+  background-color: var(--color-dark-400);
+  width: calc(100% - (2 * var(--padding-outer)));
+  border-radius: 6px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: bottom var(--transition-med), opacity var(--transition-fast);
+}
+.Toast.show {
+  opacity: 1;
+  bottom: var(--padding-outer);
+}

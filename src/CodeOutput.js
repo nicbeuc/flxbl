@@ -1,10 +1,14 @@
+import { useState } from 'react';
 import SyntaxHighlighter from 'react-syntax-highlighter';
 import { a11yDark } from 'react-syntax-highlighter/dist/esm/styles/hljs';
+import Toast from './Toast';
 import './CodeOutput.css';
 
 function CodeOutput({
   deviceSettings
 }) {
+  const [toastMessage, setToastMessage] = useState('');
+  const [toastType, setToastType] = useState('');
 
   const code = (
 `.parent-element {
@@ -36,8 +40,25 @@ function CodeOutput({
   }
 }`);
 
+  function showToast() {
+    document.querySelector('.Toast').classList.add('show');
+    setTimeout(() => {
+      document.querySelector('.Toast').classList.remove('show');
+    }, 3000)
+  }
+
   function handleCopyButtonClick() {
-    navigator.clipboard.writeText(code);
+    try {
+      navigator.clipboard.writeText(code);
+      setToastMessage('Code copied successfully.');
+      setToastType('success');
+    } catch(error) {
+      console.error(error);
+      setToastMessage('An error occured.');
+      setToastType('error');
+    } finally {
+      showToast();
+    }
   }
 
   return (
@@ -60,6 +81,7 @@ function CodeOutput({
       <SyntaxHighlighter language='css' style={a11yDark}>
         {code}
       </SyntaxHighlighter>
+      <Toast type={toastType} text={toastMessage} />
     </div>
   )
 }

@@ -1,7 +1,6 @@
 .CodeOutput {
   padding: var(--padding-outer);
   overflow-y: overlay;
-  position: relative;
   --copy-button-height: 40px;
 }
 .CodeOutput pre {
