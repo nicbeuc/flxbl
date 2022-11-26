@@ -25,6 +25,9 @@
   min-width: unset;
   text-align: right;
 }
+.Breakpoint input:focus-visible {
+  outline: 2px solid var(--color-dark-100);
+}
 .Breakpoint input::-webkit-inner-spin-button,
 .Breakpoint input::-webkit-outer-spin-button {
   -webkit-appearance: none;

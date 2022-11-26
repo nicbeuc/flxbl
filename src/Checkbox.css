@@ -35,6 +35,10 @@ input[type='checkbox'] + label::after {
   border-radius: 3px;
   flex: 0 0 var(--checkbox-width);
 }
+input[type='checkbox']:focus-visible + label::after,
+input[type='checkbox']:focus + label::after {
+  outline: 2px solid var(--color-dark-100);
+}
 input[type='checkbox']:checked + label::after {
   background: var(--color-accent);
 }
