@@ -10,28 +10,48 @@ function CodeOutput({
   const [toastMessage, setToastMessage] = useState('');
   const [toastType, setToastType] = useState('');
 
+  const mobileToTablet = {
+    columnGap: deviceSettings.tablet.columnGap !== deviceSettings.mobile.columnGap,
+    rowGap: deviceSettings.tablet.rowGap !== deviceSettings.mobile.rowGap,
+    columns: deviceSettings.tablet.columns !== deviceSettings.mobile.columns,
+    fillAvailable: deviceSettings.tablet.fillAvailable !== deviceSettings.mobile.fillAvailable
+  }
+
   const code = (
 `.parent-element {
   --columnGap: ${deviceSettings.mobile.columnGap}rem;
   --rowGap: ${deviceSettings.mobile.rowGap}rem;
   --columns: ${deviceSettings.mobile.columns};
+  --fillAvailable: ${deviceSettings.mobile.fillAvailable ? 1 : 0};
   display: flex;
   flex-wrap: wrap;
   column-gap: var(--columnGap);
   row-gap: var(--rowGap);
 }
 .child-element {
-  flex: ${deviceSettings.mobile.fillAvailable ? 1 : 0} 0 calc((100% - (var(--columnGap) * (var(--columns) - 1))) / var(--columns));
+  flex: var(--fillAvailable) 0 calc((100% - (var(--columnGap) * (var(--columns) - 1))) / var(--columns));
 }
-/* Tablet and up */
+`
++
+`${ Object.values(mobileToTablet).includes(true) ?
+`/* Tablet and up */
 @media screen and (min-width: ${deviceSettings.mobile.maxWidth + 0.01}rem) {
-  .parent-element {
-    --columnGap: ${deviceSettings.tablet.columnGap}rem;
-    --rowGap: ${deviceSettings.tablet.rowGap}rem;
-    --columns: ${deviceSettings.tablet.columns};
+  .parent-element {` +
+    `${mobileToTablet.columnGap ? `
+      --columnGap: ${deviceSettings.tablet.columnGap}rem;` : ''}` +
+    `${mobileToTablet.rowGap ? `
+      --rowGap: ${deviceSettings.tablet.rowGap}rem;` : ''}` +
+    `${mobileToTablet.columns ? `
+      --columns: ${deviceSettings.tablet.columns};` : ''}` +
+    `${mobileToTablet.fillAvailable ? `
+      --fillAvailable: ${deviceSettings.tablet.fillAvailable ? 1 : 0};` : ''}` +
+  `
   }
 }
-/* Desktop and up */
+` : ''
+}`
++
+`/* Desktop and up */
 @media screen and (min-width: ${deviceSettings.tablet.maxWidth + 0.01}rem) {
   .parent-element {
     --columnGap: ${deviceSettings.desktop.columnGap}rem;
