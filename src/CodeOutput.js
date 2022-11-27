@@ -58,7 +58,7 @@ function CodeOutput({
 ` : ''
 }`
 +
-`${ Object.values(mobileToTablet).includes(true) ?
+`${ Object.values(tabletToDesktop).includes(true) ?
 `/* Desktop and up */
 @media screen and (min-width: ${deviceSettings.tablet.maxWidth + 0.01}rem) {
   .parent-element {` +
