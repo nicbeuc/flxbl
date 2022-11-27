@@ -15,6 +15,13 @@ function CodeOutput({
     rowGap: deviceSettings.tablet.rowGap !== deviceSettings.mobile.rowGap,
     columns: deviceSettings.tablet.columns !== deviceSettings.mobile.columns,
     fillAvailable: deviceSettings.tablet.fillAvailable !== deviceSettings.mobile.fillAvailable
+  };
+
+  const tabletToDesktop = {
+    columnGap: deviceSettings.desktop.columnGap !== deviceSettings.tablet.columnGap,
+    rowGap: deviceSettings.desktop.rowGap !== deviceSettings.tablet.rowGap,
+    columns: deviceSettings.desktop.columns !== deviceSettings.tablet.columns,
+    fillAvailable: deviceSettings.desktop.fillAvailable !== deviceSettings.tablet.fillAvailable
   }
 
   const code = (
@@ -37,28 +44,38 @@ function CodeOutput({
 `/* Tablet and up */
 @media screen and (min-width: ${deviceSettings.mobile.maxWidth + 0.01}rem) {
   .parent-element {` +
-    `${mobileToTablet.columnGap ? `
-      --columnGap: ${deviceSettings.tablet.columnGap}rem;` : ''}` +
-    `${mobileToTablet.rowGap ? `
-      --rowGap: ${deviceSettings.tablet.rowGap}rem;` : ''}` +
-    `${mobileToTablet.columns ? `
-      --columns: ${deviceSettings.tablet.columns};` : ''}` +
-    `${mobileToTablet.fillAvailable ? `
-      --fillAvailable: ${deviceSettings.tablet.fillAvailable ? 1 : 0};` : ''}` +
+  `${mobileToTablet.columnGap ? `
+    --columnGap: ${deviceSettings.tablet.columnGap}rem;` : ''}` +
+  `${mobileToTablet.rowGap ? `
+    --rowGap: ${deviceSettings.tablet.rowGap}rem;` : ''}` +
+  `${mobileToTablet.columns ? `
+    --columns: ${deviceSettings.tablet.columns};` : ''}` +
+  `${mobileToTablet.fillAvailable ? `
+    --fillAvailable: ${deviceSettings.tablet.fillAvailable ? 1 : 0};` : ''}` +
   `
   }
 }
 ` : ''
 }`
 +
+`${ Object.values(mobileToTablet).includes(true) ?
 `/* Desktop and up */
 @media screen and (min-width: ${deviceSettings.tablet.maxWidth + 0.01}rem) {
-  .parent-element {
-    --columnGap: ${deviceSettings.desktop.columnGap}rem;
-    --rowGap: ${deviceSettings.desktop.rowGap}rem;
-    --columns: ${deviceSettings.desktop.columns};
+  .parent-element {` +
+  `${tabletToDesktop.columnGap ? `
+    --columnGap: ${deviceSettings.desktop.columnGap}rem;` : ''}` +
+  `${tabletToDesktop.rowGap ? `
+    --rowGap: ${deviceSettings.desktop.rowGap}rem;` : ''}` +
+  `${tabletToDesktop.columns ? `
+    --columns: ${deviceSettings.desktop.columns};` : ''}` +
+  `${tabletToDesktop.fillAvailable ? `
+    --fillAvailable: ${deviceSettings.desktop.fillAvailable ? 1 : 0};` : ''}` +
+  `
   }
-}`);
+}
+`: ''
+}`
+);
 
   function showToast() {
     document.querySelector('.Toast').classList.add('show');
