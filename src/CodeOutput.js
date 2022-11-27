@@ -72,8 +72,7 @@ function CodeOutput({
     --fillAvailable: ${deviceSettings.desktop.fillAvailable ? 1 : 0};` : ''}` +
   `
   }
-}
-`: ''
+}` : ''
 }`
 );
 

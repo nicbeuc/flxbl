@@ -6,6 +6,9 @@
 .CodeOutput pre {
   background: var(--color-dark-500) !important;
   margin-top: calc(var(--copy-button-height) * -1);
+  padding: 0 !important;
+  margin-bottom: 0;
+  color: var(--color-dark-100) !important;
 }
 .CodeOutput__copy {
   all: initial;
