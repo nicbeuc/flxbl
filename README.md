@@ -4,7 +4,10 @@ A no-nonsense flex grid generator.
 
 ### To-do
 
-- Refactor Visualizer compontent
+- Refactor Visualizer compontent (maybe)
+- Light/dark modes
+- Slider track needs grabbing cursor when thumb is bieing dragged
+- Accessibility audit
 
 ### Roadmap
 
