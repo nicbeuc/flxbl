@@ -26,11 +26,11 @@
 }
 .Slider__label {
   font: var(--font-label);
-  color: var(--color-dark-200);
+  color: var(--color-theme-200);
 }
 .Slider__value {
   font: var(--font-value);
-  background-color: var(--color-dark-400);
+  background-color: var(--color-theme-400);
   padding: 6px 8px;
   border-radius: calc(var(--border-radius) / 2);
   min-width: 40px;
@@ -42,7 +42,7 @@
   top: 50%;
   transform: translateY(-50%);
   height: 8px;
-  background: var(--color-dark-400);
+  background: var(--color-theme-400);
   cursor: pointer;
 }
 .Slider__track-0 {
@@ -75,7 +75,7 @@
 .Slider__mark {
   width: var(--marker-width);
   height: var(--marker-width);
-  background-color: var(--color-dark-300);
+  background-color: var(--color-theme-300);
   cursor: pointer;
   border-radius: 2px;
   vertical-align: middle;
@@ -91,5 +91,5 @@
 .Slider__bound {
   width: var(--thumb-width);
   font-weight: 400;
-  color: var(--color-dark-300);
+  color: var(--color-theme-300);
 }

@@ -40,6 +40,7 @@ function App() {
   const [deviceSettings, setDeviceSettings] = useState(defDeviceSettings);
   const [view, setView] = useState('desktop');
   const [tab, setTab] = useState('visualizer');
+  const [theme, setTheme] = useState('dark');
 
   function handleGeneralSliderChange(value, targetSetting) {
     setGeneralSettings((prevSettings) => ({
@@ -87,7 +88,7 @@ function App() {
   }
 
   return (
-    <div className='App'>
+    <div className={`App ${theme}`}>
       <Header />
       <div className='Controls'>
         <ControlForm

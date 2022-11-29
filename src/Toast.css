@@ -4,7 +4,7 @@
   position: absolute;
   opacity: 0;
   bottom: calc(var(--height) * -1);
-  background-color: var(--color-dark-400);
+  background-color: var(--color-theme-400);
   width: calc(100% - (2 * var(--padding-outer)));
   border-radius: 6px;
   display: flex;

@@ -4,11 +4,11 @@
   --copy-button-height: 40px;
 }
 .CodeOutput pre {
-  background: var(--color-dark-500) !important;
+  background: var(--color-theme-500) !important;
   margin-top: calc(var(--copy-button-height) * -1);
   padding: 0 !important;
   margin-bottom: 0;
-  color: var(--color-dark-100) !important;
+  color: var(--color-theme-100) !important;
 }
 .CodeOutput__copy {
   all: initial;
@@ -23,15 +23,15 @@
   color: #fff;
   padding: 10px;
   box-sizing: border-box;
-  background-color: var(--color-dark-400);
+  background-color: var(--color-theme-400);
   border-radius: 6px;
   box-shadow: inset 0 0 0 1px var(--color-border);
   transition: all var(--transition-fast);
 }
 .CodeOutput__copy:hover {
-  box-shadow: inset 0 0 0 1px var(--color-dark-200);
+  box-shadow: inset 0 0 0 1px var(--color-theme-200);
 }
 .CodeOutput__copy:active {
-  box-shadow: inset 0 0 0 1px var(--color-dark-200);
+  box-shadow: inset 0 0 0 1px var(--color-theme-200);
   transform: translateY(1px) scale(0.95);
 }
