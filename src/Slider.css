@@ -13,6 +13,12 @@
   height: var(--thumb-width);
   cursor: pointer;
 }
+.Slider__control.grabbing {
+  cursor: grabbing;
+}
+.Slider__control.grabbing > * {
+  cursor: inherit;
+}
 .Slider__label--container {
   display: flex;
   justify-content: space-between;

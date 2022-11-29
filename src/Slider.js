@@ -1,3 +1,4 @@
+import { useRef, useEffect } from 'react';
 import ReactSlider from 'react-slider';
 import './Slider.css';
 
@@ -10,10 +11,34 @@ function Slider({
   label,
   unit
 }) {
-  let marksArray = Array.from({length: range[1] - range[0] + 1}, (_, index) => index + range[0]);
+  const sliderRef = useRef(null);
+
+  useEffect(() => {
+    const sliderEl = sliderRef.current.querySelector('.Slider__control');
+    const handleSliderGrab = e => {
+      e.currentTarget.classList.add('grabbing');
+    }
+    const handleSliderRelease = e => {
+      e.currentTarget.classList.remove('grabbing');
+    }
+
+    if (sliderEl) {
+      sliderEl.addEventListener('mousedown', handleSliderGrab);
+      sliderEl.addEventListener('mouseup', handleSliderRelease);
+    }
+
+    return () => {
+      if (sliderEl) {
+        sliderEl.removeEventListener('mousedown', handleSliderGrab);
+        sliderEl.addEventListener('mouseup', handleSliderRelease);
+      }
+    };
+  }, [])
+
+  const marksArray = Array.from({length: range[1] - range[0] + 1}, (_, index) => index + range[0]);
 
   return (
-    <div className='Slider'>
+    <div className='Slider' ref={sliderRef}>
       <label className='Slider__label--container'>
         <span className='Slider__label'>{label}</span>
         <span className='Slider__value'>{unit ? currentValue + ' ' + unit : currentValue}</span>

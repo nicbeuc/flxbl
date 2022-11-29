@@ -6,8 +6,9 @@ A no-nonsense flex grid generator.
 
 - Refactor Visualizer compontent (maybe)
 - Light/dark modes
-- Slider track needs grabbing cursor when thumb is bieing dragged
+- Slider track needs grabbing cursor when thumb is being dragged
 - Accessibility audit
+- Better semantic HTML
 
 ### Roadmap
 

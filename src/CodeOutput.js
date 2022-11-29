@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 import SyntaxHighlighter from 'react-syntax-highlighter';
 import { a11yDark } from 'react-syntax-highlighter/dist/esm/styles/hljs';
 import Toast from './Toast';
@@ -9,6 +9,8 @@ function CodeOutput({
 }) {
   const [toastMessage, setToastMessage] = useState('');
   const [toastType, setToastType] = useState('');
+
+  const toastRef = useRef(null);
 
   const mobileToTablet = {
     columnGap: deviceSettings.tablet.columnGap !== deviceSettings.mobile.columnGap,
@@ -77,10 +79,12 @@ function CodeOutput({
 );
 
   function showToast() {
-    document.querySelector('.Toast').classList.add('show');
+    toastRef.current.classList.add('show');
     setTimeout(() => {
-      document.querySelector('.Toast').classList.remove('show');
-    }, 3000)
+      if (toastRef.current) {
+        toastRef.current.classList.remove('show');
+      }
+    }, 3000);
   }
 
   function handleCopyButtonClick() {
@@ -105,9 +109,9 @@ function CodeOutput({
           aria-hidden='true'
           fill='none'
           stroke='currentColor'
-          stroke-linecap='round'
-          stroke-linejoin='round'
-          stroke-width='2'
+          strokeLinecap='round'
+          strokeLinejoin='round'
+          strokeWidth='2'
           viewBox='0 0 24 24'
         >
           <rect width='13' height='13' x='9' y='9' rx='2' ry='2'/>
@@ -117,7 +121,7 @@ function CodeOutput({
       <SyntaxHighlighter language='css' style={a11yDark}>
         {code}
       </SyntaxHighlighter>
-      <Toast type={toastType} text={toastMessage} />
+      <Toast ref={toastRef} type={toastType} text={toastMessage} />
     </div>
   )
 }
