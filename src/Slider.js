@@ -20,7 +20,7 @@ function useSliderGrab(targetRef) {
     return () => {
       if (sliderEl) {
         sliderEl.removeEventListener('mousedown', handleSliderGrab);
-        sliderEl.addEventListener('mouseup', handleSliderRelease);
+        sliderEl.removeEventListener('mouseup', handleSliderRelease);
       }
     };
   }, [targetRef]);
