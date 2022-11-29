@@ -2,19 +2,9 @@ import { useRef, useEffect } from 'react';
 import ReactSlider from 'react-slider';
 import './Slider.css';
 
-function Slider({
-  onSliderChange,
-  currentValue,
-  targetSetting,
-  device,
-  range,
-  label,
-  unit
-}) {
-  const sliderRef = useRef(null);
-
+function useSliderGrab(targetRef) {
   useEffect(() => {
-    const sliderEl = sliderRef.current.querySelector('.Slider__control');
+    const sliderEl = targetRef.current.querySelector('.Slider__control');
     const handleSliderGrab = e => {
       e.currentTarget.classList.add('grabbing');
     }
@@ -33,7 +23,21 @@ function Slider({
         sliderEl.addEventListener('mouseup', handleSliderRelease);
       }
     };
-  }, [])
+  }, [targetRef]);
+}
+
+function Slider({
+  onSliderChange,
+  currentValue,
+  targetSetting,
+  device,
+  range,
+  label,
+  unit
+}) {
+  const sliderRef = useRef(null);
+
+  useSliderGrab(sliderRef);
 
   const marksArray = Array.from({length: range[1] - range[0] + 1}, (_, index) => index + range[0]);
 
