@@ -8,6 +8,7 @@ A no-nonsense flex grid generator.
 - Light/dark modes
 - Accessibility audit
 - Better semantic HTML
+- Custom hooks
 
 ### Roadmap
 
