@@ -63,13 +63,12 @@
   cursor: grab;
   box-shadow: var(--shadow-low);
 }
-.Slider__thumb:focus-visible {
+.Slider__thumb:focus-visible,
+.Slider__thumb:focus,
+.Slider__thumb:active {
   outline: var(--outline-focus);
 }
 .Slider__thumb:active {
-  cursor: grabbing;
-}
-.Slider__thumb:active ~ .Slider__track {
   cursor: grabbing;
 }
 .Slider__mark {
