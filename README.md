@@ -9,6 +9,7 @@ A no-nonsense flex grid generator.
 - Accessibility audit
 - Better semantic HTML
 - Custom hooks
+- If 0 no "rem"
 
 ### Roadmap
 
