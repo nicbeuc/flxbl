@@ -137,6 +137,11 @@ code {
   display: flex;
   justify-content: space-between;
 }
+.Header__right {
+  display: flex;
+  gap: 1.6rem;
+  align-items: center;
+}
 .Header__link {
   color: var(--color-theme-100);
 }
