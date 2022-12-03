@@ -120,6 +120,7 @@ function App() {
         :
           <CodeOutput
             deviceSettings={deviceSettings}
+            darkMode={darkMode}
           />
         }
       </div>

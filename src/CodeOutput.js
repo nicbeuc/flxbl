@@ -1,11 +1,12 @@
 import { useState, useRef } from 'react';
 import SyntaxHighlighter from 'react-syntax-highlighter';
-import { a11yDark } from 'react-syntax-highlighter/dist/esm/styles/hljs';
+import { a11yDark, a11yLight } from 'react-syntax-highlighter/dist/esm/styles/hljs';
 import Toast from './Toast';
 import './CodeOutput.css';
 
 function CodeOutput({
-  deviceSettings
+  deviceSettings,
+  darkMode
 }) {
   const [toastMessage, setToastMessage] = useState('');
   const [toastType, setToastType] = useState('');
@@ -118,7 +119,7 @@ function CodeOutput({
           <path d='M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1'/>
         </svg>
       </button>
-      <SyntaxHighlighter language='css' style={a11yDark}>
+      <SyntaxHighlighter language='css' style={darkMode ? a11yDark : a11yLight}>
         {code}
       </SyntaxHighlighter>
       <Toast ref={toastRef} type={toastType} text={toastMessage} />
