@@ -58,7 +58,7 @@
   transform: translateY(-50%);
   width: var(--thumb-width);
   height: var(--thumb-width);
-  background: var(--color-accent);
+  background: var(--color-theme-accent);
   border-radius: 50%;
   cursor: grab;
   box-shadow: var(--shadow-low);
