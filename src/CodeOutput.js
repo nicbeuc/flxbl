@@ -1,11 +1,12 @@
 import { useState, useRef } from 'react';
 import SyntaxHighlighter from 'react-syntax-highlighter';
-import { a11yDark } from 'react-syntax-highlighter/dist/esm/styles/hljs';
+import { a11yDark, a11yLight } from 'react-syntax-highlighter/dist/esm/styles/hljs';
 import Toast from './Toast';
 import './CodeOutput.css';
 
 function CodeOutput({
-  deviceSettings
+  deviceSettings,
+  darkMode
 }) {
   const [toastMessage, setToastMessage] = useState('');
   const [toastType, setToastType] = useState('');
@@ -28,8 +29,8 @@ function CodeOutput({
 
   const code = (
 `.parent-element {
-  --columnGap: ${deviceSettings.mobile.columnGap}rem;
-  --rowGap: ${deviceSettings.mobile.rowGap}rem;
+  --columnGap: ${deviceSettings.mobile.columnGap}${deviceSettings.mobile.columnGap === 0 ? '' : 'rem'};
+  --rowGap: ${deviceSettings.mobile.rowGap}${deviceSettings.mobile.rowGap === 0 ? '' : 'rem'};
   --columns: ${deviceSettings.mobile.columns};
   --fillAvailable: ${deviceSettings.mobile.fillAvailable ? 1 : 0};
   display: flex;
@@ -47,9 +48,9 @@ function CodeOutput({
 @media screen and (min-width: ${deviceSettings.mobile.maxWidth + 0.01}rem) {
   .parent-element {` +
   `${mobileToTablet.columnGap ? `
-    --columnGap: ${deviceSettings.tablet.columnGap}rem;` : ''}` +
+    --columnGap: ${deviceSettings.tablet.columnGap}${deviceSettings.tablet.columnGap === 0 ? '' : 'rem'};` : ''}` +
   `${mobileToTablet.rowGap ? `
-    --rowGap: ${deviceSettings.tablet.rowGap}rem;` : ''}` +
+    --rowGap: ${deviceSettings.tablet.rowGap}${deviceSettings.tablet.rowGap === 0 ? '' : 'rem'};` : ''}` +
   `${mobileToTablet.columns ? `
     --columns: ${deviceSettings.tablet.columns};` : ''}` +
   `${mobileToTablet.fillAvailable ? `
@@ -65,9 +66,9 @@ function CodeOutput({
 @media screen and (min-width: ${deviceSettings.tablet.maxWidth + 0.01}rem) {
   .parent-element {` +
   `${tabletToDesktop.columnGap ? `
-    --columnGap: ${deviceSettings.desktop.columnGap}rem;` : ''}` +
+    --columnGap: ${deviceSettings.desktop.columnGap}${deviceSettings.desktop.columnGap === 0 ? '' : 'rem'};` : ''}` +
   `${tabletToDesktop.rowGap ? `
-    --rowGap: ${deviceSettings.desktop.rowGap}rem;` : ''}` +
+    --rowGap: ${deviceSettings.desktop.rowGap}${deviceSettings.tablet.rowGap === 0 ? '' : 'rem'};` : ''}` +
   `${tabletToDesktop.columns ? `
     --columns: ${deviceSettings.desktop.columns};` : ''}` +
   `${tabletToDesktop.fillAvailable ? `
@@ -118,7 +119,7 @@ function CodeOutput({
           <path d='M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1'/>
         </svg>
       </button>
-      <SyntaxHighlighter language='css' style={a11yDark}>
+      <SyntaxHighlighter language='css' style={darkMode ? a11yDark : a11yLight}>
         {code}
       </SyntaxHighlighter>
       <Toast ref={toastRef} type={toastType} text={toastMessage} />

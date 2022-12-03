@@ -18,5 +18,3 @@ A no-nonsense flex grid generator.
 - useContext
 - Persistent state
 - CSS modules
-
-by Nick Beuchat

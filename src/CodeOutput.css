@@ -20,7 +20,7 @@
   width: 40px;
   height: 40px;
   cursor: pointer;
-  color: var(--color-light-100);
+  color: var(--color-theme-100);
   padding: 10px;
   box-sizing: border-box;
   background-color: var(--color-theme-400);
