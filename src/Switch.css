@@ -54,7 +54,7 @@
   width: var(--thumb-width);
   height: var(--thumb-width);
   position: absolute;
-  background-color: var(--color-accent);
+  background-color: var(--color-theme-accent);
   border-radius: 100vw;
   top: var(--gap);
   left: var(--thumb-pos);

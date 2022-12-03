@@ -16,7 +16,7 @@
   box-shadow: var(--border-subtle);
   font-size: 1.2rem;
   border-radius: calc(var(--border-radius) / 2);
-  color: #fff;
+  color: var(--color-theme-100);
   padding: 6px 8px;
   max-width: calc(16px + 4ch);
   appearance: textfield;
