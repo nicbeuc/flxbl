@@ -4,7 +4,8 @@ function Checkbox({
   onCheckboxChange,
   targetSetting,
   device,
-  checked
+  checked,
+  text
 }) {
   return (
     <div className='Checkbox'>
@@ -15,7 +16,7 @@ function Checkbox({
         checked={checked}
         onChange={onCheckboxChange}
       />
-      <label>Children should fill available space</label>
+      <label>{text}</label>
     </div>
   )
 }

@@ -62,6 +62,7 @@ function Visualizer({
           style={{
             width: getViewportWidth('desktop') + '%'
           }}
+          aria-label='Change view to desktop'
         >
         </button>
         <button
@@ -71,6 +72,7 @@ function Visualizer({
           style={{
             width: getViewportWidth('tablet') + '%'
           }}
+          aria-label='Change view to tablet'
         >
         </button>
         <button
@@ -80,6 +82,7 @@ function Visualizer({
           style={{
             width: getViewportWidth('mobile') + '%'
           }}
+          aria-label='Change view to mobile'
         >
         </button>
       </div>

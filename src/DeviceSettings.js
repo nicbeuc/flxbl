@@ -51,6 +51,7 @@ function DeviceSettings({
         checked={settings.fillAvailable}
         targetSetting='fillAvailable'
         device={device}
+        text='Children should fill available space'
       />
     </div>
   )

@@ -5,11 +5,7 @@ A no-nonsense flex grid generator.
 ### To-do
 
 - Refactor Visualizer compontent (maybe)
-- Light/dark modes
 - Accessibility audit
-- Better semantic HTML
-- Custom hooks
-- If 0 no "rem"
 
 ### Roadmap
 
