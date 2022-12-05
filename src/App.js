@@ -97,15 +97,15 @@ function App() {
         darkMode={darkMode}
         onSwitchChange={handleSwitchChange}
       />
-      <div className='Controls'>
+      <section className='Controls'>
         <ControlForm
           generalSettings={generalSettings}
           deviceSettings={deviceSettings}
           deviceHandlers={[handleDeviceSliderChange, handleDevicesCheckboxChange, handleDevicesInputChange]}
           onSliderChange={handleGeneralSliderChange}
         />
-      </div>
-      <div className='Output'>
+      </section>
+      <section className='Output'>
         <OutputTabs
           activeTab={tab}
           onTabClick={handleTabClick}
@@ -123,7 +123,7 @@ function App() {
             darkMode={darkMode}
           />
         }
-      </div>
+      </section>
     </div>
   );
 }

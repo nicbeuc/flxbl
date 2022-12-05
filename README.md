@@ -6,7 +6,6 @@ A no-nonsense flex grid generator.
 
 - Refactor Visualizer compontent (maybe)
 - Accessibility audit
-- Better semantic HTML
 - Custom hooks
 
 ### Roadmap
