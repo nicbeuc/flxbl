@@ -1,15 +1,16 @@
+import { useContext } from 'react';
 import './Switch.css';
+import { ThemeContext } from './ThemeProvider';
 
-function Switch({
-  darkMode,
-  onSwitchChange
-}) {
+function Switch() {
+  const context = useContext(ThemeContext);
+
   return (
     <div className='Switch'>
       <input
         type='checkbox'
-        checked={darkMode}
-        onChange={onSwitchChange}
+        checked={context.darkMode}
+        onChange={context.toggleTheme}
       />
       <div className='Switch__track'>
         <div className='Switch__thumb'></div>

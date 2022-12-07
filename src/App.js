@@ -1,9 +1,10 @@
-import { useState } from 'react';
+import { useState, useContext } from 'react';
 import ControlForm from './ControlForm';
 import Header from './Header';
 import Visualizer from './Visualizer';
 import OutputTabs from './OutputTabs';
 import CodeOutput from './CodeOutput';
+import { ThemeContext } from './ThemeProvider';
 
 // Default Parameters
 const defGeneralSettings = {
@@ -40,7 +41,8 @@ function App() {
   const [deviceSettings, setDeviceSettings] = useState(defDeviceSettings);
   const [view, setView] = useState('desktop');
   const [tab, setTab] = useState('visualizer');
-  const [darkMode, setDarkMode] = useState(true);
+
+  const context = useContext(ThemeContext);
 
   function handleGeneralSliderChange(value, targetSetting) {
     setGeneralSettings((prevSettings) => ({
@@ -87,16 +89,9 @@ function App() {
     setTab(e.target.dataset.content);
   }
 
-  function handleSwitchChange(e) {
-    setDarkMode(!darkMode);
-  }
-
   return (
-    <div className={`App ${darkMode ? 'dark' : 'light'}`}>
-      <Header
-        darkMode={darkMode}
-        onSwitchChange={handleSwitchChange}
-      />
+    <div className={`App ${context.darkMode ? 'dark' : 'light'}`}>
+      <Header />
       <section className='Controls'>
         <ControlForm
           generalSettings={generalSettings}
@@ -120,7 +115,6 @@ function App() {
         :
           <CodeOutput
             deviceSettings={deviceSettings}
-            darkMode={darkMode}
           />
         }
       </section>
