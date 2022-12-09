@@ -39,7 +39,6 @@ const defDeviceSettings = {
 function App() {
   const [generalSettings, setGeneralSettings] = useState(defGeneralSettings);
   const [deviceSettings, setDeviceSettings] = useState(defDeviceSettings);
-  const [view, setView] = useState('desktop');
   const [tab, setTab] = useState('visualizer');
 
   const context = useContext(ThemeContext);
@@ -81,10 +80,6 @@ function App() {
     }));
   }
 
-  function handleViewportButtonClick(e) {
-    setView(e.target.dataset.view);
-  }
-
   function handleTabClick(e) {
     setTab(e.target.dataset.content);
   }
@@ -109,8 +104,6 @@ function App() {
           <Visualizer
             generalSettings={generalSettings}
             deviceSettings={deviceSettings}
-            onButtonClick={handleViewportButtonClick}
-            view={view}
           />
         :
           <CodeOutput

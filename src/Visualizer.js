@@ -1,11 +1,16 @@
+import { useState } from 'react';
 import './Visualizer.css';
 
 function Visualizer({
   generalSettings,
-  deviceSettings,
-  onButtonClick,
-  view
+  deviceSettings
 }) {
+  const [view, setView] = useState('desktop');
+
+  function handleViewportButtonClick(e) {
+    setView(e.target.dataset.view);
+  }
+
   const getChildren = children => {
     let content = [];
     for (let i = 0; i < children; i++) {
@@ -57,7 +62,7 @@ function Visualizer({
         </div>
         <button
           data-view='desktop'
-          onClick={onButtonClick}
+          onClick={handleViewportButtonClick}
           className={`Visualizer__button${view === 'desktop' ? ' active' : ''}`}
           style={{
             width: getViewportWidth('desktop') + '%'
@@ -67,7 +72,7 @@ function Visualizer({
         </button>
         <button
           data-view='tablet'
-          onClick={onButtonClick}
+          onClick={handleViewportButtonClick}
           className={`Visualizer__button${view === 'tablet' ? ' active' : ''}`}
           style={{
             width: getViewportWidth('tablet') + '%'
@@ -77,7 +82,7 @@ function Visualizer({
         </button>
         <button
           data-view='mobile'
-          onClick={onButtonClick}
+          onClick={handleViewportButtonClick}
           className={`Visualizer__button${view === 'mobile' ? ' active' : ''}`}
           style={{
             width: getViewportWidth('mobile') + '%'
