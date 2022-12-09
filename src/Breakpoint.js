@@ -1,11 +1,14 @@
+import { useContext } from 'react';
+import { SettingsContext } from './SettingsProvider';
 import './Breakpoint.css';
 
 function Breakpoint({
-  currentValue,
   device,
-  targetSetting,
-  onInputChange
+  targetSetting
 }) {
+  const settingsContext = useContext(SettingsContext);
+  const currentValue = settingsContext.settings[device][targetSetting];
+
   return (
     <div className='Breakpoint'>
       <label className='Breakpoint__label'>Max viewport width</label>
@@ -16,7 +19,7 @@ function Breakpoint({
           data-device={device}
           data-setting={targetSetting}
           value={currentValue}
-          onChange={onInputChange}
+          onChange={settingsContext.handleSettingsInputChange}
         />
         <span className='Breakpoint__units'>rem</span>
       </div>

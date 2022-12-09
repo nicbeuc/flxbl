@@ -1,12 +1,15 @@
+import { useContext } from 'react';
+import { SettingsContext } from './SettingsProvider';
 import './Checkbox.css';
 
 function Checkbox({
-  onCheckboxChange,
   targetSetting,
   device,
-  checked,
   text
 }) {
+  const settingsContext = useContext(SettingsContext);
+  const checked = settingsContext.settings[device][targetSetting];
+
   return (
     <div className='Checkbox'>
       <input
@@ -14,7 +17,7 @@ function Checkbox({
         data-setting={targetSetting}
         data-device={device}
         checked={checked}
-        onChange={onCheckboxChange}
+        onChange={settingsContext.handleSettingsCheckboxChange}
       />
       <label>{text}</label>
     </div>
