@@ -3,38 +3,36 @@ import SyntaxHighlighter from 'react-syntax-highlighter';
 import { a11yDark, a11yLight } from 'react-syntax-highlighter/dist/esm/styles/hljs';
 import Toast from './Toast';
 import { ThemeContext } from './ThemeProvider';
+import { SettingsContext } from './SettingsProvider';
 import './CodeOutput.css';
 
-function CodeOutput({
-  deviceSettings
-}) {
+function CodeOutput(props) {
   const [toastMessage, setToastMessage] = useState('');
   const [toastType, setToastType] = useState('');
-
-  const context = useContext(ThemeContext);
-
+  const themeContext = useContext(ThemeContext);
+  const settingsContext = useContext(SettingsContext);
   const toastRef = useRef(null);
 
   const mobileToTablet = {
-    columnGap: deviceSettings.tablet.columnGap !== deviceSettings.mobile.columnGap,
-    rowGap: deviceSettings.tablet.rowGap !== deviceSettings.mobile.rowGap,
-    columns: deviceSettings.tablet.columns !== deviceSettings.mobile.columns,
-    fillAvailable: deviceSettings.tablet.fillAvailable !== deviceSettings.mobile.fillAvailable
+    columnGap: settingsContext.settings.tablet.columnGap !== settingsContext.settings.mobile.columnGap,
+    rowGap: settingsContext.settings.tablet.rowGap !== settingsContext.settings.mobile.rowGap,
+    columns: settingsContext.settings.tablet.columns !== settingsContext.settings.mobile.columns,
+    fillAvailable: settingsContext.settings.tablet.fillAvailable !== settingsContext.settings.mobile.fillAvailable
   };
 
   const tabletToDesktop = {
-    columnGap: deviceSettings.desktop.columnGap !== deviceSettings.tablet.columnGap,
-    rowGap: deviceSettings.desktop.rowGap !== deviceSettings.tablet.rowGap,
-    columns: deviceSettings.desktop.columns !== deviceSettings.tablet.columns,
-    fillAvailable: deviceSettings.desktop.fillAvailable !== deviceSettings.tablet.fillAvailable
+    columnGap: settingsContext.settings.desktop.columnGap !== settingsContext.settings.tablet.columnGap,
+    rowGap: settingsContext.settings.desktop.rowGap !== settingsContext.settings.tablet.rowGap,
+    columns: settingsContext.settings.desktop.columns !== settingsContext.settings.tablet.columns,
+    fillAvailable: settingsContext.settings.desktop.fillAvailable !== settingsContext.settings.tablet.fillAvailable
   }
 
   const code = (
 `.parent-element {
-  --columnGap: ${deviceSettings.mobile.columnGap}${deviceSettings.mobile.columnGap === 0 ? '' : 'rem'};
-  --rowGap: ${deviceSettings.mobile.rowGap}${deviceSettings.mobile.rowGap === 0 ? '' : 'rem'};
-  --columns: ${deviceSettings.mobile.columns};
-  --fillAvailable: ${deviceSettings.mobile.fillAvailable ? 1 : 0};
+  --columnGap: ${settingsContext.settings.mobile.columnGap}${settingsContext.settings.mobile.columnGap === 0 ? '' : 'rem'};
+  --rowGap: ${settingsContext.settings.mobile.rowGap}${settingsContext.settings.mobile.rowGap === 0 ? '' : 'rem'};
+  --columns: ${settingsContext.settings.mobile.columns};
+  --fillAvailable: ${settingsContext.settings.mobile.fillAvailable ? 1 : 0};
   display: flex;
   flex-wrap: wrap;
   column-gap: var(--columnGap);
@@ -47,16 +45,16 @@ function CodeOutput({
 +
 `${ Object.values(mobileToTablet).includes(true) ?
 `/* Tablet and up */
-@media screen and (min-width: ${deviceSettings.mobile.maxWidth + 0.01}rem) {
+@media screen and (min-width: ${settingsContext.settings.mobile.maxWidth + 0.01}rem) {
   .parent-element {` +
   `${mobileToTablet.columnGap ? `
-    --columnGap: ${deviceSettings.tablet.columnGap}${deviceSettings.tablet.columnGap === 0 ? '' : 'rem'};` : ''}` +
+    --columnGap: ${settingsContext.settings.tablet.columnGap}${settingsContext.settings.tablet.columnGap === 0 ? '' : 'rem'};` : ''}` +
   `${mobileToTablet.rowGap ? `
-    --rowGap: ${deviceSettings.tablet.rowGap}${deviceSettings.tablet.rowGap === 0 ? '' : 'rem'};` : ''}` +
+    --rowGap: ${settingsContext.settings.tablet.rowGap}${settingsContext.settings.tablet.rowGap === 0 ? '' : 'rem'};` : ''}` +
   `${mobileToTablet.columns ? `
-    --columns: ${deviceSettings.tablet.columns};` : ''}` +
+    --columns: ${settingsContext.settings.tablet.columns};` : ''}` +
   `${mobileToTablet.fillAvailable ? `
-    --fillAvailable: ${deviceSettings.tablet.fillAvailable ? 1 : 0};` : ''}` +
+    --fillAvailable: ${settingsContext.settings.tablet.fillAvailable ? 1 : 0};` : ''}` +
   `
   }
 }
@@ -65,16 +63,16 @@ function CodeOutput({
 +
 `${ Object.values(tabletToDesktop).includes(true) ?
 `/* Desktop and up */
-@media screen and (min-width: ${deviceSettings.tablet.maxWidth + 0.01}rem) {
+@media screen and (min-width: ${settingsContext.settings.tablet.maxWidth + 0.01}rem) {
   .parent-element {` +
   `${tabletToDesktop.columnGap ? `
-    --columnGap: ${deviceSettings.desktop.columnGap}${deviceSettings.desktop.columnGap === 0 ? '' : 'rem'};` : ''}` +
+    --columnGap: ${settingsContext.settings.desktop.columnGap}${settingsContext.settings.desktop.columnGap === 0 ? '' : 'rem'};` : ''}` +
   `${tabletToDesktop.rowGap ? `
-    --rowGap: ${deviceSettings.desktop.rowGap}${deviceSettings.tablet.rowGap === 0 ? '' : 'rem'};` : ''}` +
+    --rowGap: ${settingsContext.settings.desktop.rowGap}${settingsContext.settings.tablet.rowGap === 0 ? '' : 'rem'};` : ''}` +
   `${tabletToDesktop.columns ? `
-    --columns: ${deviceSettings.desktop.columns};` : ''}` +
+    --columns: ${settingsContext.settings.desktop.columns};` : ''}` +
   `${tabletToDesktop.fillAvailable ? `
-    --fillAvailable: ${deviceSettings.desktop.fillAvailable ? 1 : 0};` : ''}` +
+    --fillAvailable: ${settingsContext.settings.desktop.fillAvailable ? 1 : 0};` : ''}` +
   `
   }
 }` : ''
@@ -121,7 +119,7 @@ function CodeOutput({
           <path d='M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1'/>
         </svg>
       </button>
-      <SyntaxHighlighter language='css' style={context.darkMode ? a11yDark : a11yLight}>
+      <SyntaxHighlighter language='css' style={themeContext.darkMode ? a11yDark : a11yLight}>
         {code}
       </SyntaxHighlighter>
       <Toast ref={toastRef} type={toastType} text={toastMessage} />

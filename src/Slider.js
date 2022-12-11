@@ -1,5 +1,6 @@
-import { useRef, useEffect } from 'react';
+import { useRef, useEffect, useContext } from 'react';
 import ReactSlider from 'react-slider';
+import { SettingsContext } from './SettingsProvider';
 import './Slider.css';
 
 function useSliderGrab(targetRef) {
@@ -27,8 +28,6 @@ function useSliderGrab(targetRef) {
 }
 
 function Slider({
-  onSliderChange,
-  currentValue,
   targetSetting,
   device,
   range,
@@ -36,10 +35,11 @@ function Slider({
   unit
 }) {
   const sliderRef = useRef(null);
+  const settingsContext = useContext(SettingsContext);
+  const marksArray = Array.from({length: range[1] - range[0] + 1}, (_, index) => index + range[0]);
+  const currentValue = settingsContext.settings[device][targetSetting]
 
   useSliderGrab(sliderRef);
-
-  const marksArray = Array.from({length: range[1] - range[0] + 1}, (_, index) => index + range[0]);
 
   return (
     <div className='Slider' ref={sliderRef}>
@@ -55,7 +55,7 @@ function Slider({
         marks={marksArray}
         min={range[0]}
         max={range[1]}
-        onAfterChange={value => device ? onSliderChange(value, device, targetSetting) : onSliderChange(value, targetSetting)}
+        onAfterChange={value => settingsContext.handleSettingsSliderChange(value, device, targetSetting)}
         value={currentValue}
       />
       <div className='Slider__bounds'>

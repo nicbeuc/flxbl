@@ -1,12 +1,16 @@
+import { useState, useContext } from 'react';
+import { SettingsContext } from './SettingsProvider';
 import './Visualizer.css';
 
-function Visualizer({
-  generalSettings,
-  deviceSettings,
-  onButtonClick,
-  view
-}) {
-  const getChildren = children => {
+function Visualizer(props) {
+  const [view, setView] = useState('desktop');
+  const settingsContext = useContext(SettingsContext);
+
+  function handleViewportButtonClick(e) {
+    setView(e.target.dataset.view);
+  }
+
+  function getChildren(children) {
     let content = [];
     for (let i = 0; i < children; i++) {
       content.push(
@@ -14,16 +18,16 @@ function Visualizer({
           className='Visualizer__child'
           key={i + 1}
           style={{
-            flexBasis: `calc((100% - ${deviceSettings[view].columnGap * (deviceSettings[view].columns - 1)}rem) / ${deviceSettings[view].columns})`,
-            flexGrow: deviceSettings[view].fillAvailable ? 1 : 0
+            flexBasis: `calc((100% - ${settingsContext.settings[view].columnGap * (settingsContext.settings[view].columns - 1)}rem) / ${settingsContext.settings[view].columns})`,
+            flexGrow: settingsContext.settings[view].fillAvailable ? 1 : 0
           }}></div>
       );
     }
     return content;
   };
 
-  const getViewportWidth = view => {
-    return (deviceSettings[view].maxWidth / deviceSettings.desktop.maxWidth) * 100;
+  function getViewportWidth(view) {
+    return (settingsContext.settings[view].maxWidth / settingsContext.settings.desktop.maxWidth) * 100;
   }
 
   return (
@@ -38,11 +42,11 @@ function Visualizer({
           <div
             className='Visualizer__children'
             style={{
-              columnGap: `${deviceSettings[view].columnGap}rem`,
-              rowGap: `${deviceSettings[view].rowGap}rem`
+              columnGap: `${settingsContext.settings[view].columnGap}rem`,
+              rowGap: `${settingsContext.settings[view].rowGap}rem`
             }}
           >
-            {getChildren(generalSettings.children)}
+            {getChildren(settingsContext.settings.general.children)}
           </div>
         </div>
       </div>
@@ -53,11 +57,11 @@ function Visualizer({
             width: getViewportWidth(view) + '%'
           }}
         >
-          {`${view[0].toUpperCase() + view.substring(1)} - ${deviceSettings[view].maxWidth * generalSettings.baseFontSize}px`}
+          {`${view[0].toUpperCase() + view.substring(1)} - ${settingsContext.settings[view].maxWidth * settingsContext.settings.general.baseFontSize}px`}
         </div>
         <button
           data-view='desktop'
-          onClick={onButtonClick}
+          onClick={handleViewportButtonClick}
           className={`Visualizer__button${view === 'desktop' ? ' active' : ''}`}
           style={{
             width: getViewportWidth('desktop') + '%'
@@ -67,7 +71,7 @@ function Visualizer({
         </button>
         <button
           data-view='tablet'
-          onClick={onButtonClick}
+          onClick={handleViewportButtonClick}
           className={`Visualizer__button${view === 'tablet' ? ' active' : ''}`}
           style={{
             width: getViewportWidth('tablet') + '%'
@@ -77,7 +81,7 @@ function Visualizer({
         </button>
         <button
           data-view='mobile'
-          onClick={onButtonClick}
+          onClick={handleViewportButtonClick}
           className={`Visualizer__button${view === 'mobile' ? ' active' : ''}`}
           style={{
             width: getViewportWidth('mobile') + '%'
