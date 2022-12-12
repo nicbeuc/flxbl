@@ -4,7 +4,6 @@ import { a11yDark, a11yLight } from 'react-syntax-highlighter/dist/esm/styles/hl
 import Toast from './Toast';
 import { ThemeContext } from './ThemeProvider';
 import { SettingsContext } from './SettingsProvider';
-import './CodeOutput.css';
 
 function CodeOutput(props) {
   const [toastMessage, setToastMessage] = useState('');
@@ -44,7 +43,8 @@ function CodeOutput(props) {
 `
 +
 `${ Object.values(mobileToTablet).includes(true) ?
-`/* Tablet and up */
+`
+/* Tablet and up */
 @media screen and (min-width: ${settingsContext.settings.mobile.maxWidth + 0.01}rem) {
   .parent-element {` +
   `${mobileToTablet.columnGap ? `
@@ -62,7 +62,8 @@ function CodeOutput(props) {
 }`
 +
 `${ Object.values(tabletToDesktop).includes(true) ?
-`/* Desktop and up */
+`
+/* Desktop and up */
 @media screen and (min-width: ${settingsContext.settings.tablet.maxWidth + 0.01}rem) {
   .parent-element {` +
   `${tabletToDesktop.columnGap ? `

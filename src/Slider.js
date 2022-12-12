@@ -1,7 +1,6 @@
 import { useRef, useEffect, useContext } from 'react';
 import ReactSlider from 'react-slider';
 import { SettingsContext } from './SettingsProvider';
-import './Slider.css';
 
 function useSliderGrab(targetRef) {
   useEffect(() => {

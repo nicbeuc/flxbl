@@ -1,6 +1,5 @@
 import { useState, useContext } from 'react';
 import { SettingsContext } from './SettingsProvider';
-import './Visualizer.css';
 
 function Visualizer(props) {
   const [view, setView] = useState('desktop');

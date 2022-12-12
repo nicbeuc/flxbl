@@ -1,5 +1,4 @@
 import { useContext } from 'react';
-import './Switch.css';
 import { ThemeContext } from './ThemeProvider';
 
 function Switch() {

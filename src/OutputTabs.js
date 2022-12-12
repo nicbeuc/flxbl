@@ -1,5 +1,3 @@
-import './OutputTabs.css';
-
 function OutputTabs({
   activeTab,
   onTabClick
