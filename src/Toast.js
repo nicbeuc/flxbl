@@ -1,5 +1,4 @@
 import { forwardRef } from 'react';
-import './Toast.css';
 
 const Toast = forwardRef(({type, text}, ref) => {
   const icons = {

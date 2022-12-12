@@ -4,7 +4,6 @@ import { a11yDark, a11yLight } from 'react-syntax-highlighter/dist/esm/styles/hl
 import Toast from './Toast';
 import { ThemeContext } from './ThemeProvider';
 import { SettingsContext } from './SettingsProvider';
-import './CodeOutput.css';
 
 function CodeOutput(props) {
   const [toastMessage, setToastMessage] = useState('');

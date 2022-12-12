@@ -1,6 +1,5 @@
 import { useContext } from 'react';
 import { SettingsContext } from './SettingsProvider';
-import './Checkbox.css';
 
 function Checkbox({
   targetSetting,
