@@ -104,6 +104,9 @@ h3 {
 code {
   font: var(--font-code);
 }
+code * {
+  color: var(--color-theme-200) !important;
+}
 
 
 /* General */

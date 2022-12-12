@@ -43,7 +43,8 @@ function CodeOutput(props) {
 `
 +
 `${ Object.values(mobileToTablet).includes(true) ?
-`/* Tablet and up */
+`
+/* Tablet and up */
 @media screen and (min-width: ${settingsContext.settings.mobile.maxWidth + 0.01}rem) {
   .parent-element {` +
   `${mobileToTablet.columnGap ? `
@@ -61,7 +62,8 @@ function CodeOutput(props) {
 }`
 +
 `${ Object.values(tabletToDesktop).includes(true) ?
-`/* Desktop and up */
+`
+/* Desktop and up */
 @media screen and (min-width: ${settingsContext.settings.tablet.maxWidth + 0.01}rem) {
   .parent-element {` +
   `${tabletToDesktop.columnGap ? `
