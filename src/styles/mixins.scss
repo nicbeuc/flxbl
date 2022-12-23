@@ -2,5 +2,5 @@
   @media (max-width: 599px) { @content; }
 }
 @mixin tablet-down {
-  @media (min-width: 999px) { @content; }
+  @media (max-width: 999px) { @content; }
 }

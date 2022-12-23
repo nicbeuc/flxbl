@@ -54,6 +54,10 @@
 --padding-inner: 6.4rem;
 --padding-outer: 3.2rem;
 
+@include tablet-down {
+  --padding-inner: 3.2rem;
+}
+
 
 /* Margins */
 
@@ -70,6 +74,7 @@
 /* Misc */
 
 --border-radius: 1rem;
+--width-max-mobile: 500px;
 
 }
 
@@ -145,6 +150,16 @@ body {
     'Header Header Header'
     'Controls Output Output';
 
+  @include tablet-down {
+    grid-template-columns: 100%;
+    grid-template-rows: 32px auto auto;
+    grid-template-areas:
+      'Header'
+      'Controls'
+      'Output';
+    height: auto;
+  }
+
   ::-webkit-scrollbar,
   ::-webkit-scrollbar-track-piece,
   ::-webkit-scrollbar-track,
@@ -205,6 +220,7 @@ code * {
   grid-area: Header;
   display: flex;
   justify-content: space-between;
+  width: 100%;
 
   &__right {
     display: flex;
@@ -214,6 +230,11 @@ code * {
 
   &__link {
     color: var(--color-theme-100);
+  }
+
+  @include tablet-down {
+    max-width: var(--width-max-mobile);
+    margin: 0 auto;
   }
 }
 
@@ -319,6 +340,12 @@ code * {
   -ms-overflow-style: none;  /* IE and Edge */
   scrollbar-width: none; /* Firefox */
   overscroll-behavior: contain;
+  width: 100%;
+
+  @include tablet-down {
+    max-width: var(--width-max-mobile);
+    margin: 0 auto;
+  }
 }
 .Output {
   overflow: hidden;
@@ -336,6 +363,12 @@ code * {
   -ms-overflow-style: none;  /* IE and Edge */
   scrollbar-width: none; /* Firefox */
   overscroll-behavior: contain;
+  width: 100%;
+
+  @include tablet-down {
+    max-width: var(--width-max-mobile);
+    margin: 0 auto;
+  }
 }
 
 
