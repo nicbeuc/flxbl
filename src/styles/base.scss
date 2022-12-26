@@ -344,6 +344,7 @@ code * {
 
   @include tablet-down {
     max-width: var(--width-max-mobile);
+    max-height: 500px;
     margin: 0 auto;
   }
 }
@@ -368,6 +369,7 @@ code * {
   @include tablet-down {
     max-width: var(--width-max-mobile);
     margin: 0 auto;
+    max-height: 500px;
   }
 }
 
