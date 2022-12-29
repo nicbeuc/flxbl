@@ -56,6 +56,7 @@
 
 @include tablet-down {
   --padding-inner: 3.2rem;
+  --padding-outer: 2.4rem;
 }
 
 
@@ -152,12 +153,19 @@ body {
 
   @include tablet-down {
     grid-template-columns: 100%;
-    grid-template-rows: 32px auto auto;
+    grid-template-rows: 60px calc(50vh - 30px) calc(50vh - 30px);
     grid-template-areas:
       'Header'
-      'Controls'
-      'Output';
+      'Output'
+      'Controls';
     height: auto;
+  }
+
+  @include mobile-down {
+    padding: 0;
+    gap: 0;
+    max-height: 100vh;
+    overflow: hidden;
   }
 
   ::-webkit-scrollbar,
@@ -221,6 +229,8 @@ code * {
   display: flex;
   justify-content: space-between;
   width: 100%;
+  box-sizing: border-box;
+  align-items: center;
 
   &__right {
     display: flex;
@@ -235,6 +245,10 @@ code * {
   @include tablet-down {
     max-width: var(--width-max-mobile);
     margin: 0 auto;
+  }
+
+  @include mobile-down {
+    padding: 0 2.4rem;
   }
 }
 
@@ -344,7 +358,13 @@ code * {
 
   @include tablet-down {
     max-width: var(--width-max-mobile);
+    max-height: 500px;
     margin: 0 auto;
+  }
+
+  @include mobile-down {
+    border: 0;
+    border-radius: 0;
   }
 }
 .Output {
@@ -368,6 +388,13 @@ code * {
   @include tablet-down {
     max-width: var(--width-max-mobile);
     margin: 0 auto;
+    max-height: 500px;
+  }
+
+  @include mobile-down {
+    border-radius: 0;
+    border-right: 0;
+    border-left: 0;
   }
 }
 
